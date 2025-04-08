@@ -8,13 +8,19 @@ namespace MegSWSApplication.Controllers
 {
     public class LoginController : Controller
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public LoginController(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
         public IActionResult Index()
         {
             return View(new LoginModel());
         }
 
         [HttpPost]
-        public async Task<ActionResult> Index(LoginModel model)
+        public async Task<IActionResult> Index(LoginModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -22,23 +28,26 @@ namespace MegSWSApplication.Controllers
                 return View(model);
             }
 
-            // Convert to JSON and send to API
             using (var client = new HttpClient())
             {
-                string apiUrl = "https://localhost:7149/api/UserReg/UserLogin"; // Replace with your actual API URL
-                client.BaseAddress = new Uri(apiUrl);
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                var json = JsonConvert.SerializeObject(model);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                HttpResponseMessage response = await client.PostAsync(apiUrl, content);
+                string apiUrl = $"https://localhost:7149/api/UserReg/UserLogin?username={model.Email}&password={model.Password}";
+               
+                HttpResponseMessage response = await client.PostAsync(apiUrl, null);
 
                 if (response.IsSuccessStatusCode)
                 {
-                    ViewBag.Message = "Login Successful!";
-                    // Optionally redirect or set session
+                    var jsonResult = await response.Content.ReadAsStringAsync();
+                    var result = JsonConvert.DeserializeObject<LoginResponse>(jsonResult);
 
+                    // Store JWT and user info in session
+                    HttpContext.Session.SetString("JWToken", result.token);
+                    HttpContext.Session.SetString("FullName", result.data.Fullname ?? "");
+                    HttpContext.Session.SetString("UserID", result.data.Userid ?? "");
+                    HttpContext.Session.SetString("PAN", result.data.PANno ?? "");
+                    HttpContext.Session.SetString("Email", result.data.Email ?? "");
+                    HttpContext.Session.SetString("EntityName", result.data.EntityName ?? "");
+
+                    return RedirectToAction("Index", "UserDashboard");
                 }
                 else
                 {
@@ -48,6 +57,8 @@ namespace MegSWSApplication.Controllers
 
             return View(model);
         }
+
+
 
     }
 }

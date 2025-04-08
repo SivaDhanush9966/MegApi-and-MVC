@@ -13,12 +13,13 @@ namespace MegApi.Services
         {
             _connStr = configuration.GetConnectionString("MIPASS");
         }
-        public List<Investors> GetInvestors()
+        public List<Investors> GetInvestors(string userId)
         {
             List<Investors> investorsList = new List<Investors>();
             SqlConnection con = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand("USP_GET_UNITS_BY_INVESTORS", con);
             cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserId", userId);
             try
             {
                 con.Open();

@@ -1,4 +1,5 @@
 ﻿using MegApi.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,11 +14,13 @@ namespace MegApi.Controllers
         public InverstorController(IUserInvestors userInvestors) { this._userInvestors = userInvestors; }
 
         [HttpGet("GetInvestors")]
-        public IActionResult actionResult()
+        [Authorize]
+        public IActionResult GetInvestors([FromQuery] string userId)
         {
             try
             {
-                var investors = _userInvestors.GetInvestors();
+
+                var investors = _userInvestors.GetInvestors(userId);
 
                 if (investors == null || !investors.Any())
                 {
@@ -26,11 +29,11 @@ namespace MegApi.Controllers
 
                 return Ok(investors);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return StatusCode(500, "An error occurred while retrieving investors.");
             }
         }
+
     }
 }

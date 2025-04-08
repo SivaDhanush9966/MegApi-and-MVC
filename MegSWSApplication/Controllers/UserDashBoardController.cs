@@ -5,9 +5,9 @@ namespace MegSWSApplication.Controllers
 {
     public class UserDashBoardController : Controller
     {
-        public IActionResult Index(UserInfo userInfo)
+        public IActionResult Index()
         {
-            return View(userInfo);
+            return View();
         }
     }
 }

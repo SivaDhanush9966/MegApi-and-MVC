@@ -1,0 +1,50 @@
+﻿<!-- Views/Shared/_DashboardNavBar.cshtml -->
+<!-- Top Bar -->
+<div class="text-white py-1" style="background: linear-gradient(to right, #0d1f57, #0b355e)">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <div>
+            <span>Date: @DateTime.Now.ToString("d/M/yyyy : HH:mm:ss")</span>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+            <select class="form-select form-select-sm w-auto">
+                <option selected>Select Language</option>
+            </select>
+            <div class="text-white fw-bold">
+                <span>Help Line No : </span><strong>+91 7085741695</strong>
+            </div>
+            <div class="text-white">
+                👤 <strong>@ViewBag.FullName</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Logo and Banner -->
+<div class="bg-light py-3" style="background-image:url('~/assets/admin/img/dbghead11.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+    <div class="container-fluid d-flex align-items-center">
+        <img src="~/assets/admin/img/logo.png" alt="MiIPA Logo" style="height: 60px;" />
+        <div class="ms-3">
+            <h5 class="mb-0 fw-bold">MEGHALAYA INVESTMENT PROMOTION AUTHORITY</h5>
+        </div>
+    </div>
+</div>
+
+<!-- Dashboard Navbar -->
+<nav class="navbar navbar-expand-lg" style="background-color: #002147;">
+    <div class="container-fluid">
+        <ul class="navbar-nav d-flex flex-row flex-wrap w-100 justify-content-start align-items-center gap-3">
+            <li class="nav-item"><a class="nav-link text-white" href="#"><i class="bi bi-house-door-fill"></i> Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">🏭 Industry Registration</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">📍 Land Allotment</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">📋 Pre-Establishment</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">⚙️ Pre-Operational</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">💰 Incentives</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">🔁 Renewals</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">📢 Grievance</a></li>
+            <li class="nav-item"><a class="nav-link text-white" href="#">📚 Other Services</a></li>
+            <li class="nav-item ms-auto">
+                <a asp-controller="Logout" asp-action="Index" class="btn btn-sm btn-danger">LOGOUT</a>
+            </li>
+        </ul>
+    </div>
+</nav>
