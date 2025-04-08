@@ -1,0 +1,80 @@
+﻿@model MegSWSApplication.Models.UserRegDetails
+@{
+    ViewBag.Title = "Register";
+}
+
+<div style="max-width: 1000px; margin: 40px auto; padding: 40px; border-radius: 20px; background: white; box-shadow: 0px 0px 30px rgba(0,0,0,0.1);">
+    <h3 style="font-weight: bold;">Register</h3>
+    <p style="color: gray;">Access to our dashboard</p>
+
+    @using (Html.BeginForm("SaveUser", "UserRegistration", FormMethod.Post, new { @id = "userForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+
+            <div style="flex: 1 1 48%;">
+                @Html.LabelFor(m => m.PANno)
+                @Html.TextBoxFor(m => m.PANno, new { style = "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;", required = "required" })
+            </div>
+
+            <div style="flex: 1 1 48%;">
+                @Html.Label("Company Name as per PAN")
+                @Html.TextBoxFor(m => m.CompanyName, new { style = "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;", required = "required" })
+            </div>
+
+            <div style="flex: 1 1 48%;">
+                @Html.Label("Full Name")
+                @Html.TextBoxFor(m => m.Fullname, new { style = "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;", required = "required" })
+            </div>
+
+            <div style="flex: 1 1 48%;">
+                @Html.Label("Mobile No")
+                @Html.TextBoxFor(m => m.MobileNo, new { style = "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;", required = "required" })
+            </div>
+
+            <div style="flex: 1 1 48%;">
+                @Html.Label("Email Id")
+                @Html.TextBoxFor(m => m.Email, new { style = "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;", required = "required", type = "email" })
+            </div>
+
+            <div style="flex: 1 1 48%;">
+                @Html.Label("Password")
+                @Html.PasswordFor(m => m.Password, new { style = "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;", required = "required" })
+            </div>
+
+            <div style="flex: 1 1 48%;">
+                @Html.Label("State")
+                @Html.TextBoxFor(m => m.State, new { style = "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;", required = "required" })
+            </div>
+
+            <div style="flex: 1 1 48%;">
+                @Html.Label("Date of Birth")
+                @Html.TextBoxFor(m => m.DateofBirth, new { style = "width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 5px;", type = "date", required = "required" })
+            </div>
+
+            <div style="flex: 1 1 100%;">
+                @Html.Label("Enter Captcha")
+                <div style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
+                    <input type="text" name="captcha" required style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 5px;" />
+                    <img src="~/assets/captcha.jpg" alt="Captcha" style="height: 38px;" />
+                    <button type="button" style="padding: 8px 12px; border: none; background-color: #e9ecef; border-radius: 5px;">🔄</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="margin-top: 30px; display: flex; gap: 15px;">
+            <button type="submit" style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px;">Submit</button>
+            <button type="reset" style="background-color: #ffc107; color: white; border: none; padding: 10px 20px; border-radius: 5px;">Clear</button>
+        </div>
+
+        @if (ViewBag.Message != null)
+        {
+            <div style="margin-top: 20px; padding: 10px; background-color: #d4edda; color: #155724; border-radius: 5px;">
+                @ViewBag.Message
+            </div>
+        }
+    }
+</div>
+
