@@ -19,7 +19,7 @@ namespace MegApi.Services
             SqlConnection con = new SqlConnection(_connStr);
             SqlCommand cmd = new SqlCommand("USP_GET_UNITS_BY_INVESTORS", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@UserId", userId);
+            cmd.Parameters.AddWithValue("@INVESTERID", userId);
             try
             {
                 con.Open();
