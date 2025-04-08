@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    var fullname = HttpContextAccessor.HttpContext.Session.GetString("Fullname");   
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -11,95 +18,14 @@
 <body>
     <header>
 
-        <!-- Top Info Bar -->
-        <div class="text-white py-1" style="background: linear-gradient(to right, #0d1f57, #0b355e)">
-            <div class="container-fluid d-flex justify-content-between align-items-center">
-                <div>
-                    Toll Free Number : <strong>+91 7085741695</strong>
-                </div>
-                <div class="d-flex align-items-center gap-3">
-                    <select class="form-select form-select-sm w-auto">
-                        <option selected>Select Language</option>
-                        <!-- Add language options -->
-                    </select>
-                    <div class="text-warning fw-bold">
-                        *MIIPP 2024 Registrations open till 31st March 2026
-                    </div>
-                    <a asp-area="" asp-controller="Login" asp-action="Index" class="btn btn-primary btn-sm">LOGIN</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Logo and Banner -->
-        <div class="bg-light py-3" style="background-image:url('~/assets/admin/img/dbghead11.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center;">
-            <div class="container-fluid d-flex align-items-center">
-                <img src="~/assets/admin/img/logo.png" alt="MiIPA Logo" style="height: 60px;" />
-                <div class="ms-3">
-                    <h5 class="mb-0 fw-bold">MEGHALAYA INVESTMENT PROMOTION AUTHORITY</h5>
-                </div>
-            </div>
-        </div>
-
-
-        <!-- Main Navbar -->
-        <nav class="navbar navbar-expand-lg" style="background-color: #e0e0e0;">
-            <!-- Cement color -->
-            <div class="container-fluid">
-                <a class="navbar-brand text-black" href="#">HOME</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="mainNavbar">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-black" href="#" id="whyMeghalayaDropdown" role="button" data-bs-toggle="dropdown">WHY MEGHALAYA</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Overview</a></li>
-                                <li><a class="dropdown-item" href="#">Advantage Meghalaya</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-black" href="#" id="investmentDropdown" role="button" data-bs-toggle="dropdown">INVESTMENT OPPORTUNITIES</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Sectors</a></li>
-                                <li><a class="dropdown-item" href="#">Regions</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-black" href="#">POLICY FRAMEWORK</a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-black" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown">SERVICES</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">CAF</a></li>
-                                <li><a class="dropdown-item" href="#">Approvals</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-black" href="#" id="resourcesDropdown" role="button" data-bs-toggle="dropdown">RESOURCES</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Documents</a></li>
-                                <li><a class="dropdown-item" href="#">Downloads</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-black" href="#" id="dashboardDropdown" role="button" data-bs-toggle="dropdown">DASHBOARD</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">User Dashboard</a></li>
-                                <li><a class="dropdown-item" href="#">Admin Dashboard</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
+        @if (fullname != null)
+            {
+                @Html.Partial("_DashboardNavBar")
+            }
+        else
+        {
+            @Html.Partial("_HomeNavBar")
+        }
 
     </header>
     <div class="container">
