@@ -10,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUserRegService, UserRegistration>();
+builder.Services.AddScoped<IUserInvestors, UserInverstors>();
 
 var app = builder.Build();
 
