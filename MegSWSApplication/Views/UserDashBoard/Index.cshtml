@@ -1,1 +1,44 @@
-﻿<head>UserDashboardWorking!!!</head>
+﻿@model List<MegSWSApplication.Models.Investors>
+
+<div class="container mt-4">
+    <div class="card p-3 shadow">
+        <h3 class="text-primary">Welcome to Dashboard</h3>
+
+        <table class="table table-bordered table-striped mt-3">
+            <thead class="table-dark">
+                <tr>
+                    <th>Sl.No</th>
+                    <th>Acknowledgement ID</th>
+                    <th>Unit Name</th>
+                    <th>Unit Address</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    int i = 1;
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.PREREGUIDNO</td>
+                            <td>@item.COMPANYNAME</td>
+                            <td>@item.UNITADDRESS</td>
+                            <td>
+                                <a href="#" class="btn btn-primary btn-sm">Click Here</a>
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="text-center text-danger">No data found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
