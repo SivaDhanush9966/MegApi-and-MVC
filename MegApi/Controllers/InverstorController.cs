@@ -12,9 +12,9 @@ namespace MegApi.Controllers
         private IUserInvestors _userInvestors;
 
         public InverstorController(IUserInvestors userInvestors) { this._userInvestors = userInvestors; }
-
-        [HttpGet("GetInvestors")]
         [Authorize]
+        [HttpGet("GetInvestors")]
+        
         public IActionResult GetInvestors([FromQuery] string userId)
         {
             try

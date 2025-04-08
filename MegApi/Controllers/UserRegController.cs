@@ -73,7 +73,7 @@ namespace MegApi.Controllers
             var claims = new[]
             {
                new Claim(JwtRegisteredClaimNames.Sub, user.Fullname),
-               new Claim(ClaimTypes.Role, user.RoleId)
+               new Claim(ClaimTypes.Name, user.Userid)
             };
 
             var token = new JwtSecurityToken(
