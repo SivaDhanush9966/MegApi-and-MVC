@@ -58,7 +58,10 @@ namespace MegSWSApplication.Controllers
             return View(model);
         }
 
-
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
 
     }
 }
