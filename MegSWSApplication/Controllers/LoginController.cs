@@ -58,6 +58,10 @@ namespace MegSWSApplication.Controllers
             return View(model);
         }
 
+        public IActionResult ForgotPassword()
+        {
+            return View();
+        }
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
