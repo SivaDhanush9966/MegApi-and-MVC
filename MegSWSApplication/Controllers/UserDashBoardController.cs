@@ -24,8 +24,8 @@ namespace MegSWSApplication.Controllers
             {
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-                // 🔁 Replace URL below with actual endpoint
-                var response = await client.GetAsync($"https://your-api-url/api/UserReg/GetInvestors?userId={userId}");
+                
+                var response = await client.GetAsync($"https://localhost:7149/api/Inverstor/GetInvestors?userId={1001}");
 
                 if (response.IsSuccessStatusCode)
                 {
