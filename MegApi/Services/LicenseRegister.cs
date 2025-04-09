@@ -12,10 +12,9 @@ namespace MegApi.Services
 
         public LicenseRegister(IConfiguration configuration)
         {
-            _connStr = configuration.GetConnectionString(" ");
+            _connStr = configuration.GetConnectionString("HTAX2O");
         }
 
-        
         public string CreateLicense(License1 license)
         {
             using (SqlConnection connection = new SqlConnection(_connStr))
@@ -25,7 +24,7 @@ namespace MegApi.Services
 
                 try
                 {
-                    SqlCommand command = new SqlCommand("UpsertLicence", connection, transaction)
+                    SqlCommand command = new SqlCommand("InsertLicence", connection, transaction)
                     {
                         CommandType = CommandType.StoredProcedure
                     };
@@ -68,6 +67,5 @@ namespace MegApi.Services
 
             return "sucess";
         }
-
     }
 }

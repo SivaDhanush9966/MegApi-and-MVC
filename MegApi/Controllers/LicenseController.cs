@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Net;
+using MegApi.Interfaces;
 using MegApi.Models;
 using MegApi.Services;
 using Microsoft.AspNetCore.Http;
@@ -11,9 +12,9 @@ namespace MegApi.Controllers
     [ApiController]
     public class LicenseController : ControllerBase
     {
-        private readonly LicenseRegister _licenseService;
+        private readonly ILicense _licenseService;
 
-        public LicenseController(LicenseRegister licenseService)
+        public LicenseController(ILicense licenseService)
         {
             _licenseService = licenseService;
         }
