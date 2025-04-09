@@ -4,61 +4,70 @@
     ViewBag.Title = "User Login";
 }
 
-<div class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="d-flex rounded-4 overflow-hidden shadow" style="min-height: 450px;">
-                <div class="col-md-6 d-flex flex-column justify-content-center text-white text-center" style="background: linear-gradient(to bottom, #004e92, #000428); padding: 30px;">
-                    <h2 class="fw-bold mb-3">Welcome Back!</h2>
-                    <p>To keep connected with</p>
-                    <h5 class="fw-bold">Meghalaya Investment<br />Promotion Authority (MIPA)</h5>
-                    <p>with your personal info</p>
-                </div>
+<section id="app" style="background:url('/assets/assetsnew/images/hero-bg.jpg')">
+    <div class="container-fluid">
+        
 
-                <div class="col-md-6 bg-white p-4">
-                    <h3 class="text-center fw-bold">User Login</h3>
-                    <p class="text-center text-muted">Access to our dashboard</p>
 
-                    @using (Html.BeginForm("Index", "Login", FormMethod.Post))
-                    {
-                        @Html.AntiForgeryToken()
 
-                        <div class="mb-3">
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email", type = "email", required = "required" })
-                        </div>
 
-                        <div class="mb-3">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password", required = "required" })
-                        </div>
+ <div class="p-4">
+     <div class="row justify-content-center">
+         <div class="col-md-8">
+             <div class="d-flex rounded-4 overflow-hidden shadow" style="min-height: 450px;">
+                 <div class="col-md-6 d-flex flex-column justify-content-center text-white text-center" style="background: linear-gradient(to bottom, #004e92, #000428); padding: 30px;">
+                     <h2 class="fw-bold mb-3">Welcome Back!</h2>
+                     <p>To keep connected with</p>
+                     <h5 class="fw-bold">Meghalaya Investment<br />Promotion Authority (MIPA)</h5>
+                     <p>with your personal info</p>
+                 </div>
 
-                        <div class="mb-3 d-flex">
-                            <input type="text" class="form-control me-2" placeholder="Captcha" required />
-                            <img src="~/assets/captcha.jpg" alt="Captcha" style="height: 38px;" />
-                            <button type="button" class="btn btn-outline-secondary ms-2 px-2 py-0">🔄</button>
-                        </div>
+                 <div class="col-md-6 bg-white p-4">
+                     <h3 class="text-center fw-bold">User Login</h3>
+                     <p class="text-center text-muted">Access to our dashboard</p>
 
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">Login</button>
-                        </div>
+                     @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                     {
+                         @Html.AntiForgeryToken()
 
-                        <div class="text-center mt-2">
-                            <a asp-controller="Login" asp-action="ForgotPassword" class="text-muted">Forgot Password?</a>
-                        </div>
+                         <div class="mb-3">
+                             @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email", type = "email", required = "required" })
+                         </div>
 
-                        <hr />
+                         <div class="mb-3">
+                             @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password", required = "required" })
+                         </div>
 
-                        <div class="text-center">
-                            <span class="text-muted">Don’t have an account?</span>
-                            <a href="@Url.Action("SaveUser", "UserRegistration")" class="fw-bold text-primary">SignUp</a>
-                        </div>
+                         <div class="mb-3 d-flex">
+                             <input type="text" class="form-control me-2" placeholder="Captcha" required />
+                             <img src="~/assets/captcha.jpg" alt="Captcha" style="height: 38px;" />
+                             <button type="button" class="btn btn-outline-secondary ms-2 px-2 py-0">🔄</button>
+                         </div>
 
-                        @if (ViewBag.Message != null)
-                        {
-                            <div class="alert alert-info mt-2">@ViewBag.Message</div>
-                        }
-                    }
-                </div>
-            </div>
-        </div>
-    </div>
+                         <div class="d-grid">
+                             <button type="submit" class="btn btn-primary">Login</button>
+                         </div>
+
+                         <div class="text-center mt-2">
+                             <a asp-controller="Login" asp-action="ForgotPassword" class="text-muted">Forgot Password?</a>
+                         </div>
+
+                         <hr />
+
+                         <div class="text-center">
+                             <span class="text-muted">Don’t have an account?</span>
+                             <a href="@Url.Action("SaveUser", "UserRegistration")" class="fw-bold text-primary">SignUp</a>
+                         </div>
+
+                         @if (ViewBag.Message != null)
+                         {
+                             <div class="alert alert-info mt-2">@ViewBag.Message</div>
+                         }
+                     }
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
 </div>
+</section>

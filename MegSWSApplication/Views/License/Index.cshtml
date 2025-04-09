@@ -1,0 +1,22 @@
+﻿@model MegSWSApplication.Models.LicenseeFullDetailsModel
+
+@{
+    ViewData["Title"] = "License Form";
+}
+
+<h2>License Form</h2>
+
+<form asp-action="SubmitLicenseData" method="post">
+    @Html.Partial("~/Views/Shared/Partials/LicenseeBusinessAddress.cshtml")
+    @Html.Partial("~/Views/Shared/Partials/LicenseePersonalAddress.cshtml")
+    @Html.Partial("~/Views/Shared/Partials/LicenseePersonalDetails.cshtml")
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
+
+@if (ViewBag.ApiResponse != null)
+{
+    <div class="alert alert-info">
+        @ViewBag.ApiResponse
+    </div>
+}
