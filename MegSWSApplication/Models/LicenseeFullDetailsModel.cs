@@ -29,5 +29,9 @@
         public string BusinessDistrict { get; set; }
         public string BusinessState { get; set; }
         public string BusinessPincode { get; set; }
+
+        //created details
+        public string Createdby { get; set; }
+        public string CreatedIp { get; set; }
     }
 }
