@@ -12,9 +12,26 @@ namespace MegSWSApplication.Controllers
         {
             _httpContextAccessor = httpContextAccessor;
         }
-        public IActionResult Index()
+
+
+        public async Task<IActionResult>Index()
         {
-            return View();
+            LicenseeFullDetailsModel model = new LicenseeFullDetailsModel();
+
+            using (var client = new HttpClient())
+            {
+                var userId = _httpContextAccessor.HttpContext.Session.GetString("UserId");
+
+                HttpResponseMessage response = await client.GetAsync($"https://your-api-base-url/api/licensee/get-by-id?userId={userId}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsStringAsync();
+                    model = JsonConvert.DeserializeObject<LicenseeFullDetailsModel>(result);
+                }
+            }
+
+            return View(model);
         }
 
         [HttpPost]
@@ -59,5 +76,9 @@ namespace MegSWSApplication.Controllers
             // Return same view with message
             return View("Index", model);
         }
+
+
+
+
     }
 }

@@ -20,7 +20,7 @@ namespace MegSWSApplication.Controllers
         {
             List<Investors> investors = new List<Investors>();
             var token = _httpContextAccessor.HttpContext.Session.GetString("JWToken");
-            var userId = _httpContextAccessor.HttpContext.Session.GetString("UserId");
+            var userId = _httpContextAccessor.HttpContext.Session.GetString("UserID");
 
             using (var client = new HttpClient())
             {

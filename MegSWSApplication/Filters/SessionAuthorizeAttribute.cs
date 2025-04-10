@@ -9,11 +9,11 @@ namespace MegSWSApplication.Filters
         {
             var httpContext = context.HttpContext;
             var token = httpContext.Session.GetString("JWToken");
-            var userId = httpContext.Session.GetString("UserId");
+            var userId = httpContext.Session.GetString("UserID");
 
             if (string.IsNullOrEmpty(token) || string.IsNullOrEmpty(userId))
             {
-                context.Result = new RedirectToActionResult("Login", "Home", null);
+                context.Result = new RedirectToActionResult("Index", "Login", null);
             }
         }
     }
