@@ -20,9 +20,9 @@ namespace MegSWSApplication.Controllers
 
             using (var client = new HttpClient())
             {
-                var userId = _httpContextAccessor.HttpContext.Session.GetString("UserId");
+                var userId = _httpContextAccessor.HttpContext.Session.GetString("UserID");
 
-                HttpResponseMessage response = await client.GetAsync($"https://your-api-base-url/api/licensee/get-by-id?userId={userId}");
+                HttpResponseMessage response = await client.GetAsync($"https://localhost:7149/api/License/{userId}");
 
                 if (response.IsSuccessStatusCode)
                 {

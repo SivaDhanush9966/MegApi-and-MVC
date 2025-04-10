@@ -1,62 +1,65 @@
 ﻿@model MegSWSApplication.Models.LicenseeFullDetailsModel
 
-<fieldset class="border p-2">
-    <legend class="w-auto">Basic Details</legend>
+<div class="card shadow-sm mb-4">
+    <div class="card-header text-dark" style="background-color: #e6f2ff;">
+        <h5 class="mb-0">Basic Details</h5>
+    </div>
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="ApplicantName" class="form-label fw-semibold">Applicant Name:</label>
+                    <input asp-for="ApplicantName" class="form-control" placeholder="Applicant Name" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="FatherName" class="form-label fw-semibold">Father Name:</label>
+                    <input asp-for="FatherName" class="form-control" placeholder="Father Name" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="DOB" class="form-label fw-semibold">D.O.B:</label>
+                    <input asp-for="DOB" type="date" class="form-control" placeholder="D.O.B" />
+                </div>
+            </div>
+        </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="ApplicantName">Applicant Name:</label>
-                <input asp-for="ApplicantName" class="form-control" placeholder="Applicant Name" />
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="Email" class="form-label fw-semibold">E-Mail ID:</label>
+                    <input asp-for="Email" class="form-control" placeholder="E-Mail ID" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="Mobile" class="form-label fw-semibold">Mobile Number:</label>
+                    <input asp-for="Mobile" class="form-control" placeholder="Mobile Number" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="PAN" class="form-label fw-semibold">PAN Number:</label>
+                    <input asp-for="PAN" class="form-control" placeholder="PAN Number" />
+                </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="FatherName">Father Name:</label>
-                <input asp-for="FatherName" class="form-control" placeholder="Father Name" />
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="Aadhaar" class="form-label fw-semibold">Aadhaar Number:</label>
+                    <input asp-for="Aadhaar" class="form-control" placeholder="Aadhaar Number" />
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="DOB">D.O.B:</label>
-                <input asp-for="DOB" type="date" class="form-control" placeholder="D.O.B" />
+            <div class="col-md-8">
+                <div class="form-group">
+                    <label asp-for="PersonalDetailsAddress" class="form-label fw-semibold">Address:</label>
+                    <input asp-for="PersonalDetailsAddress" class="form-control" placeholder="Address" />
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="Email">E-Mail ID:</label>
-                <input asp-for="Email" class="form-control" placeholder="E-Mail ID" />
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="Mobile">Mobile Number:</label>
-                <input asp-for="Mobile" class="form-control" placeholder="Mobile Number" />
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="PAN">PAN Number:</label>
-                <input asp-for="PAN" class="form-control" placeholder="PAN Number" />
-            </div>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="Aadhaar">Aadhaar Number:</label>
-                <input asp-for="Aadhaar" class="form-control" placeholder="Aadhaar Number" />
-            </div>
-        </div>
-        <div class="col-md-8">
-            <div class="form-group">
-                <label asp-for="PersonalDetailsAddress">Address:</label>
-                <input asp-for="PersonalDetailsAddress" class="form-control" placeholder="Address" />
-            </div>
-        </div>
-    </div>
-</fieldset>
+</div>

@@ -1,47 +1,51 @@
 ﻿@model MegSWSApplication.Models.LicenseeFullDetailsModel
 
-<fieldset class="border p-2">
-    <legend class="w-auto">Business address details of licensee</legend>
+<div class="card shadow-sm mb-4">
+    <div class="card-header text-dark" style="background-color: #e6f2ff;">
+        <h5 class="mb-0">Business Address Details of Licensee</h5>
+    </div>
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="BusinessAddrLine" class="form-label fw-semibold">Address Line:</label>
+                    <input asp-for="BusinessAddrLine" class="form-control" placeholder="Address line" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="BusinessVillage" class="form-label fw-semibold">Village:</label>
+                    <input asp-for="BusinessVillage" class="form-control" placeholder="Village" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="BusinessCity" class="form-label fw-semibold">City / Town:</label>
+                    <input asp-for="BusinessCity" class="form-control" placeholder="City / Town" />
+                </div>
+            </div>
+        </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="BusinessAddrLine">Address Line:</label>
-                <input asp-for="BusinessAddrLine" class="form-control" placeholder="Address line" />
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="BusinessDistrict" class="form-label fw-semibold">District:</label>
+                    <input asp-for="BusinessDistrict" class="form-control" placeholder="District" />
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="BusinessVillage">Village:</label>
-                <input asp-for="BusinessVillage" class="form-control" placeholder="Village" />
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="BusinessState" class="form-label fw-semibold">State:</label>
+                    <input asp-for="BusinessState" class="form-control" placeholder="State" />
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="BusinessCity">City / Town:</label>
-                <input asp-for="BusinessCity" class="form-control" placeholder="City / Town" />
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="BusinessPincode" class="form-label fw-semibold">Pin Code:</label>
+                    <input asp-for="BusinessPincode" class="form-control" placeholder="Pin Code" />
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="BusinessDistrict">District:</label>
-                <input asp-for="BusinessDistrict" class="form-control" placeholder="District" />
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="BusinessState">State:</label>
-                <input asp-for="BusinessState" class="form-control" placeholder="State" />
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="form-group">
-                <label asp-for="BusinessPincode">Pin Code:</label>
-                <input asp-for="BusinessPincode" class="form-control" placeholder="Pin Code" />
-            </div>
-        </div>
-    </div>
-</fieldset>

@@ -4,19 +4,33 @@
     ViewData["Title"] = "License Form";
 }
 
-<h2 class="mb-4">License Form</h2>
+<div class="card shadow border-0">
+    <div class="card-body p-4">
 
-<form asp-action="SubmitLicenseData" method="post">
-    @Html.Partial("~/Views/Shared/Partials/LicenseePersonalDetails.cshtml")
-    @Html.Partial("~/Views/Shared/Partials/LicenseePersonalAddress.cshtml")
-    @Html.Partial("~/Views/Shared/Partials/LicenseeBusinessAddress.cshtml")
+        <h2 class="card-header text-white text-center" style="background-color: cornflowerblue; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            License Form
+        </h2>
 
-    <button type="submit" class="btn btn-primary mt-4">Submit</button>
-</form>
+        <form asp-action="SubmitLicenseData" method="post">
+            @Html.Partial("~/Views/Shared/Partials/LicenseePersonalDetails.cshtml")
+            @Html.Partial("~/Views/Shared/Partials/LicenseePersonalAddress.cshtml")
+            @Html.Partial("~/Views/Shared/Partials/LicenseeBusinessAddress.cshtml")
 
-@if (ViewBag.ApiResponse != null)
-{
-    <div class="alert alert-info mt-3">
-        @ViewBag.ApiResponse
+            <div class="text-center">
+                <button type="submit" class="btn btn-success mt-4 px-5 py-2 fw-semibold">
+                    Submit
+                </button>
+            </div>
+        </form>
+
+        @if (ViewBag.ApiResponse != null)
+        {
+            <div class="alert alert-info alert-dismissible fade show mt-4" role="alert">
+                <strong>Response:</strong> @ViewBag.ApiResponse
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        }
+
     </div>
-}
+</div>
+
