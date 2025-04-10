@@ -3,6 +3,7 @@ using System.Data;
 using MegApi.Interfaces;
 using MegApi.Models;
 using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Configuration;
 
 namespace MegApi.Services
 {
@@ -70,6 +71,60 @@ namespace MegApi.Services
             return "success";
         }
 
-       
+
+        public LicenseeFullDetails GetLicenseeById(int userId)
+        {
+            LicenseeFullDetails licensee = null;
+
+            using (SqlConnection connection = new SqlConnection(_connStr))
+            {
+                SqlCommand command = new SqlCommand("GetLicenseeById", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                command.Parameters.AddWithValue("@UserId", userId);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    licensee = new LicenseeFullDetails
+                    {
+                        UserId = Convert.ToInt32(reader["UserId"]),
+                        ApplicantName = reader["ApplicantName"]?.ToString(),
+                        FatherName = reader["FatherName"]?.ToString(),
+                        DOB = Convert.ToDateTime(reader["DOB"]),
+                        Email = reader["Email"]?.ToString(),
+                        Mobile = reader["Mobile"]?.ToString(),
+                        PAN = reader["PAN"]?.ToString(),
+                        Aadhaar = reader["Aadhaar"]?.ToString(),
+                        PersonalDetailsAddress = reader["PersonalDetailsAddress"]?.ToString(),
+
+                        PersonalAddrLine = reader["PersonalAddrLine"]?.ToString(),
+                        PersonalVillage = reader["PersonalVillage"]?.ToString(),
+                        PersonalCity = reader["PersonalCity"]?.ToString(),
+                        PersonalDistrict = reader["PersonalDistrict"]?.ToString(),
+                        PersonalState = reader["PersonalState"]?.ToString(),
+                        PersonalPincode = reader["PersonalPincode"]?.ToString(),
+
+                        BusinessAddrLine = reader["BusinessAddrLine"]?.ToString(),
+                        BusinessVillage = reader["BusinessVillage"]?.ToString(),
+                        BusinessCity = reader["BusinessCity"]?.ToString(),
+                        BusinessDistrict = reader["BusinessDistrict"]?.ToString(),
+                        BusinessState = reader["BusinessState"]?.ToString(),
+                        BusinessPincode = reader["BusinessPincode"]?.ToString(),
+
+                        Createdby = reader["CreatedBy"]?.ToString(),
+                        CreatedIp = reader["CreatedIP"]?.ToString()
+                    };
+                }
+
+                reader.Close();
+            }
+
+            return licensee;
+        }
+
     }
 }

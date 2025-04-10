@@ -47,5 +47,16 @@ namespace MegApi.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, new { message = "An error occurred.", error = ex.Message });
             }
         }
+
+        [HttpGet("{userId}")]
+        public IActionResult GetLicenseeById(int userId)
+        {
+            var licensee = _licenseService.GetLicenseeById(userId);
+
+            if (licensee == null)
+                return NotFound("Licensee not found");
+
+            return Ok(licensee);
+        }
     }
 }

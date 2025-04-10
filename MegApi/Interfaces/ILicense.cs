@@ -6,5 +6,6 @@ namespace MegApi.Interfaces
     public interface ILicense
     {
       public string CreateLicense(LicenseeFullDetails license);
+      public LicenseeFullDetails GetLicenseeById(int userId);
     }
 }
