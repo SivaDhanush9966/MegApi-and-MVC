@@ -15,7 +15,7 @@ namespace MegApi.Services
             _connStr = configuration.GetConnectionString("HTAX2O");
         }
 
-        public string CreateLicense(License1 license)
+        public string CreateLicense(LicenseeFullDetails licensee)
         {
             using (SqlConnection connection = new SqlConnection(_connStr))
             {
@@ -24,36 +24,38 @@ namespace MegApi.Services
 
                 try
                 {
-                    SqlCommand command = new SqlCommand("InsertLicence", connection, transaction)
+                    SqlCommand command = new SqlCommand("InsertOrUpdateUser", connection, transaction)
                     {
                         CommandType = CommandType.StoredProcedure
                     };
 
-                    // Add parameters as defined in the stored procedure
-                    command.Parameters.AddWithValue("@UserId", license.UserId);
-                    command.Parameters.AddWithValue("@PermanentAddressLine", license.PermanentAddressLine ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@PermanentVillage", license.PermanentVillage ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@PermanentCityOrTown", license.PermanentCityOrTown ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@PermanentDistrict", license.PermanentDistrict ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@PermanentState", license.PermanentState ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@PermanentPinCode", license.PermanentPinCode ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@UserId", licensee.UserId);
+                    command.Parameters.AddWithValue("@ApplicantName", licensee.ApplicantName ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@FatherName", licensee.FatherName ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@DOB", licensee.DOB);
 
-                    command.Parameters.AddWithValue("@PersonalAddressLine", license.PersonalAddressLine ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@PersonalVillage", license.PersonalVillage ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@PersonalCityOrTown", license.PersonalCityOrTown ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@PersonalDistrict", license.PersonalDistrict ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@PersonalState", license.PersonalState ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@PersonalPinCode", license.PersonalPinCode ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@Email", licensee.Email ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@Mobile", licensee.Mobile ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@PAN", licensee.PAN ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@Aadhaar", licensee.Aadhaar ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@PersonalDetailsAddress", licensee.PersonalDetailsAddress ?? (object)DBNull.Value);
 
-                    command.Parameters.AddWithValue("@BusinessAddressLine", license.BusinessAddressLine ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@BusinessVillage", license.BusinessVillage ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@BusinessCityOrTown", license.BusinessCityOrTown ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@BusinessDistrict", license.BusinessDistrict ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@BusinessState", license.BusinessState ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@BusinessPinCode", license.BusinessPinCode ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@PersonalAddrLine", licensee.PersonalAddrLine ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@PersonalVillage", licensee.PersonalVillage ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@PersonalCity", licensee.PersonalCity ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@PersonalDistrict", licensee.PersonalDistrict ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@PersonalState", licensee.PersonalState ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@PersonalPincode", licensee.PersonalPincode ?? (object)DBNull.Value);
 
-                    command.Parameters.AddWithValue("@CreatedBy", license.CreatedBy ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@CreatedIP", license.CreatedIP ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@BusinessAddrLine", licensee.BusinessAddrLine ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@BusinessVillage", licensee.BusinessVillage ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@BusinessCity", licensee.BusinessCity ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@BusinessDistrict", licensee.BusinessDistrict ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@BusinessState", licensee.BusinessState ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@BusinessPincode", licensee.BusinessPincode ?? (object)DBNull.Value);
+
+                    command.Parameters.AddWithValue("@CreatedBy", licensee.Createdby ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@CreatedIP", licensee.CreatedIp ?? (object)DBNull.Value);
 
                     command.ExecuteNonQuery();
                     transaction.Commit();
@@ -61,11 +63,13 @@ namespace MegApi.Services
                 catch (Exception)
                 {
                     transaction.Rollback();
-                    throw; // Re-throw to preserve stack trace
+                    throw;
                 }
             }
 
-            return "sucess";
+            return "success";
         }
+
+       
     }
 }

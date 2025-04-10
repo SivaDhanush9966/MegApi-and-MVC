@@ -20,7 +20,7 @@ namespace MegApi.Controllers
         }
 
         [HttpPost("InsL1")]
-        public IActionResult UpsertLicense([FromBody] License1 license)
+        public IActionResult UpsertLicense([FromBody] LicenseeFullDetails license)
         {
             if (license == null)
             {
@@ -29,10 +29,13 @@ namespace MegApi.Controllers
 
             // Get IP Address from request
             string ipAddress = HttpContext.Connection.RemoteIpAddress?.ToString();
-
-            // Hardcoding CreatedBy for example purpose; you could extract from auth token in real apps
-            license.CreatedBy = "System"; // You can fetch this from JWT or user session later
-            license.CreatedIP = ipAddress ?? "Unknown";
+            if(license.Createdby==null && license.CreatedIp == null)
+            {
+                // Hardcoding CreatedBy for example purpose; you could extract from auth token in real apps
+                license.Createdby = "System"; // You can fetch this from JWT or user session later
+                license.CreatedIp = ipAddress ?? "Unknown";
+            }
+            
 
             try
             {
