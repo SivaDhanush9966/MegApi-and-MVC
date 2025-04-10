@@ -1,42 +1,47 @@
-﻿<fieldset class="border p-2">
-	<legend class="w-auto">Personal address details of licensee</legend>
-	
+﻿@model MegSWSApplication.Models.LicenseeFullDetailsModel
 
-	<div class="col-md-12 d-flex">
-		<div class="col-md-4">
-			<div class="form-group">
-				<input class="form-control" type="text" placeholder="Address line">
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<input class="form-control" type="text" placeholder=" Village">
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<input class="form-control" type="text" placeholder="City / Town">
-			</div>
-		</div>
+<fieldset class="border p-2">
+    <legend class="w-auto">Personal address details of licensee</legend>
 
-	</div>
-	<div class="col-md-12 d-flex">
-		<div class="col-md-4">
-			<div class="form-group">
-				<input class="form-control" type="text" placeholder="District ">
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<input class="form-control" type="text" placeholder="State">
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<input class="form-control" type="text" placeholder="Pin Code">
-			</div>
-		</div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="PersonalAddrLine">Address Line:</label>
+                <input asp-for="PersonalAddrLine" class="form-control" placeholder="Address line" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="PersonalVillage">Village:</label>
+                <input asp-for="PersonalVillage" class="form-control" placeholder="Village" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="PersonalCity">City / Town:</label>
+                <input asp-for="PersonalCity" class="form-control" placeholder="City / Town" />
+            </div>
+        </div>
+    </div>
 
-	</div>
-
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="PersonalDistrict">District:</label>
+                <input asp-for="PersonalDistrict" class="form-control" placeholder="District" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="PersonalState">State:</label>
+                <input asp-for="PersonalState" class="form-control" placeholder="State" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="PersonalPincode">Pin Code:</label>
+                <input asp-for="PersonalPincode" class="form-control" placeholder="Pin Code" />
+            </div>
+        </div>
+    </div>
 </fieldset>

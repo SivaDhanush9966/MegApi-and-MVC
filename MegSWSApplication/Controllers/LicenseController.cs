@@ -19,7 +19,7 @@ namespace MegSWSApplication.Controllers
 
             using (var client = new HttpClient())
             {
-                string apiUrl = "https://example.com/api/license/submit"; // Dummy API
+                string apiUrl = "https://localhost:7149/api/License/InsL1"; // API
 
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 

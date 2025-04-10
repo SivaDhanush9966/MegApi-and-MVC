@@ -1,64 +1,62 @@
-﻿<fieldset class="border p-2">
-	<legend class="w-auto">Basic Details</legend>
-	<div class="col-md-12 d-flex">
-		<div class="col-md-4">
-			<div class="form-group">
-				<label>Applicant Name :</label>
-				<input class="form-control" type="text" placeholder="Applicant Name">
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<label>Father Name :</label>
-				<!-- <input class="form-control" type="" placeholder="Address"> -->
-				<input class="form-control" type="text" placeholder="Father Name">
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<label>D.O.B :</label>
-				<input class="form-control" type="date" placeholder="D.O.B">
-			</div>
-		</div>
+﻿@model MegSWSApplication.Models.LicenseeFullDetailsModel
 
-	</div>
+<fieldset class="border p-2">
+    <legend class="w-auto">Basic Details</legend>
 
-	<div class="col-md-12 d-flex">
-		<div class="col-md-4">
-			<div class="form-group">
-				<label>E-Mail id :</label>
-				<input class="form-control" type="text" placeholder="E-Mail id">
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<label>Mobile Number :</label>
-				<input class="form-control" type="text" placeholder="Mobile">
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<label>Pan Number :</label>
-				<input class="form-control" type="text" placeholder="Pan Number">
-			</div>
-		</div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="ApplicantName">Applicant Name:</label>
+                <input asp-for="ApplicantName" class="form-control" placeholder="Applicant Name" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="FatherName">Father Name:</label>
+                <input asp-for="FatherName" class="form-control" placeholder="Father Name" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="DOB">D.O.B:</label>
+                <input asp-for="DOB" type="date" class="form-control" placeholder="D.O.B" />
+            </div>
+        </div>
+    </div>
 
-	</div>
-	<div class="col-md-12 d-flex">
-		<div class="col-md-4">
-			<div class="form-group">
-				<label>Aadhaar Number :</label>
-				<input class="form-control" type="text" placeholder="Aadhaar Number">
-			</div>
-		</div>
-		<div class="col-md-8">
-			<div class="form-group">
-				<label>Address :</label>
-				<input class="form-control" type="text" placeholder="Address">
-			</div>
-		</div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Email">E-Mail ID:</label>
+                <input asp-for="Email" class="form-control" placeholder="E-Mail ID" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Mobile">Mobile Number:</label>
+                <input asp-for="Mobile" class="form-control" placeholder="Mobile Number" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="PAN">PAN Number:</label>
+                <input asp-for="PAN" class="form-control" placeholder="PAN Number" />
+            </div>
+        </div>
+    </div>
 
-
-	</div>
-
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="Aadhaar">Aadhaar Number:</label>
+                <input asp-for="Aadhaar" class="form-control" placeholder="Aadhaar Number" />
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <label asp-for="PersonalDetailsAddress">Address:</label>
+                <input asp-for="PersonalDetailsAddress" class="form-control" placeholder="Address" />
+            </div>
+        </div>
+    </div>
 </fieldset>

@@ -4,19 +4,19 @@
     ViewData["Title"] = "License Form";
 }
 
-<h2>License Form</h2>
+<h2 class="mb-4">License Form</h2>
 
 <form asp-action="SubmitLicenseData" method="post">
-    @Html.Partial("~/Views/Shared/Partials/LicenseeBusinessAddress.cshtml")
-    @Html.Partial("~/Views/Shared/Partials/LicenseePersonalAddress.cshtml")
     @Html.Partial("~/Views/Shared/Partials/LicenseePersonalDetails.cshtml")
+    @Html.Partial("~/Views/Shared/Partials/LicenseePersonalAddress.cshtml")
+    @Html.Partial("~/Views/Shared/Partials/LicenseeBusinessAddress.cshtml")
 
-    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <button type="submit" class="btn btn-primary mt-4">Submit</button>
 </form>
 
 @if (ViewBag.ApiResponse != null)
 {
-    <div class="alert alert-info">
+    <div class="alert alert-info mt-3">
         @ViewBag.ApiResponse
     </div>
 }

@@ -1,42 +1,47 @@
-﻿<fieldset class="border p-2">
-	<legend class="w-auto">Business address details of licensee</legend>
+﻿@model MegSWSApplication.Models.LicenseeFullDetailsModel
 
+<fieldset class="border p-2">
+    <legend class="w-auto">Business address details of licensee</legend>
 
-	<div class="col-md-12 d-flex">
-		<div class="col-md-4">
-			<div class="form-group">
-				<input class="form-control" type="text" placeholder="Address line">
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<input class="form-control" type="text" placeholder=" Village">
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<input class="form-control" type="text" placeholder="City / Town">
-			</div>
-		</div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="BusinessAddrLine">Address Line:</label>
+                <input asp-for="BusinessAddrLine" class="form-control" placeholder="Address line" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="BusinessVillage">Village:</label>
+                <input asp-for="BusinessVillage" class="form-control" placeholder="Village" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="BusinessCity">City / Town:</label>
+                <input asp-for="BusinessCity" class="form-control" placeholder="City / Town" />
+            </div>
+        </div>
+    </div>
 
-	</div>
-	<div class="col-md-12 d-flex">
-		<div class="col-md-4">
-			<div class="form-group">
-				<input class="form-control" type="text" placeholder="District ">
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<input class="form-control" type="text" placeholder="State">
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="form-group">
-				<input class="form-control" type="text" placeholder="Pin Code">
-			</div>
-		</div>
-
-	</div>
-
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="BusinessDistrict">District:</label>
+                <input asp-for="BusinessDistrict" class="form-control" placeholder="District" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="BusinessState">State:</label>
+                <input asp-for="BusinessState" class="form-control" placeholder="State" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="BusinessPincode">Pin Code:</label>
+                <input asp-for="BusinessPincode" class="form-control" placeholder="Pin Code" />
+            </div>
+        </div>
+    </div>
 </fieldset>

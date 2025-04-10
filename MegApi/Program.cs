@@ -45,6 +45,7 @@ c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
 });
 
 builder.Services.AddScoped<IUserRegService, UserRegistration>();
+builder.Services.AddScoped<ILicense,LicenseRegister>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         .AddJwtBearer(options =>
         {
