@@ -7,6 +7,11 @@ namespace MegSWSApplication.Controllers
 {
     public class LicenseController : Controller
     {
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public LicenseController(IHttpContextAccessor httpContextAccessor)
+        {
+            _httpContextAccessor = httpContextAccessor;
+        }
         public IActionResult Index()
         {
             return View();
@@ -15,6 +20,14 @@ namespace MegSWSApplication.Controllers
         [HttpPost]
         public async Task<IActionResult> SubmitLicenseData(LicenseeFullDetailsModel model)
         {
+            var userId = _httpContextAccessor.HttpContext.Session.GetString("UserID");
+            var createdby = _httpContextAccessor.HttpContext.Session.GetString("FullName");
+            model.CreatedIp = HttpContext.Connection.RemoteIpAddress?.ToString();
+            model.Createdby = createdby;
+            model.UserId = Convert.ToInt32(userId);
+
+
+
             var jsonData = JsonConvert.SerializeObject(model);
 
             using (var client = new HttpClient())
