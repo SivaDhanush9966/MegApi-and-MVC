@@ -2,7 +2,7 @@
 {
     public class LicenseeFullDetailsModel
     {
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
 
         // Personal Details
         public string ApplicantName { get; set; }
