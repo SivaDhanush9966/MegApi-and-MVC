@@ -1,10 +1,12 @@
-﻿using MegSWSApplication.Models;
+﻿using MegSWSApplication.Filters;
+using MegSWSApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace MegSWSApplication.Controllers
 {
+    [SessionAuthorize]
     public class LicenseController : Controller
     {
         private readonly IHttpContextAccessor _httpContextAccessor;

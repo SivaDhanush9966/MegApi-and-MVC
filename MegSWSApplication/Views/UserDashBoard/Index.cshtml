@@ -2,10 +2,12 @@
 
 <div class="container mt-4">
     <div class="card p-3 shadow">
-        <h3 class="text-primary">Welcome to Dashboard</h3>
+        <h3 class="card-header text-white text-center" style="background-color: cornflowerblue; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+            __/\__ Welcome to Dashboard __/\__
+        </h3>
 
         <table class="table table-bordered table-striped mt-3">
-            <thead class="table-dark">
+            <thead style="background-color: #e6f2ff;">
                 <tr>
                     <th>Sl.No</th>
                     <th>Acknowledgement ID</th>
@@ -14,6 +16,7 @@
                     <th>Status</th>
                 </tr>
             </thead>
+
             <tbody>
                 @if (Model != null && Model.Count > 0)
                 {
