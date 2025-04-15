@@ -23,8 +23,9 @@ namespace MegSWSApplication.Controllers
             using (var client = new HttpClient())
             {
                 var userId = _httpContextAccessor.HttpContext.Session.GetString("UserID");
+                client.BaseAddress = new Uri("https://localhost:5000");
 
-                HttpResponseMessage response = await client.GetAsync($"https://localhost:7149/api/License/{userId}");
+                HttpResponseMessage response = await client.GetAsync($"Licence?userId={userId}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -51,7 +52,10 @@ namespace MegSWSApplication.Controllers
 
             using (var client = new HttpClient())
             {
-                string apiUrl = "https://localhost:7149/api/License/InsL1"; // API
+                client.BaseAddress = new Uri("https://localhost:5000");
+
+                
+                string apiUrl = $"Licence/INS"; // API
 
                 var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
 

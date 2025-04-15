@@ -24,10 +24,11 @@ namespace MegSWSApplication.Controllers
 
             using (var client = new HttpClient())
             {
+                client.BaseAddress = new Uri("https://localhost:5000");
                 client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
                 
-                var response = await client.GetAsync($"https://localhost:7149/api/Inverstor/GetInvestors?userId={1001}");
+                var response = await client.GetAsync($"user/dashboard?userId={1001}");
 
                 if (response.IsSuccessStatusCode)
                 {

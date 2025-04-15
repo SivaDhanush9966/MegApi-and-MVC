@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegApi", "MegApi\MegApi.csproj", "{B57E385B-2BED-46AC-B871-0FFBAF9D0A28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MegApi", "MegApi\MegApi.csproj", "{B57E385B-2BED-46AC-B871-0FFBAF9D0A28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegSWSApplication", "MegSWSApplication\MegSWSApplication.csproj", "{2CE0E5E8-0916-41D2-9802-9F96C358E162}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MegSWSApplication", "MegSWSApplication\MegSWSApplication.csproj", "{2CE0E5E8-0916-41D2-9802-9F96C358E162}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotApi", "OcelotApi\OcelotApi.csproj", "{B50CD39F-22ED-4F7A-9193-1FB1CB676420}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2CE0E5E8-0916-41D2-9802-9F96C358E162}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CE0E5E8-0916-41D2-9802-9F96C358E162}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CE0E5E8-0916-41D2-9802-9F96C358E162}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B50CD39F-22ED-4F7A-9193-1FB1CB676420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B50CD39F-22ED-4F7A-9193-1FB1CB676420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B50CD39F-22ED-4F7A-9193-1FB1CB676420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B50CD39F-22ED-4F7A-9193-1FB1CB676420}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

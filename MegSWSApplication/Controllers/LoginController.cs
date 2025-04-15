@@ -30,8 +30,10 @@ namespace MegSWSApplication.Controllers
 
             using (var client = new HttpClient())
             {
-                string apiUrl = $"https://localhost:7149/api/UserReg/UserLogin?username={model.Email}&password={model.Password}";
-               
+                client.BaseAddress = new Uri("https://localhost:5000");
+
+                string apiUrl = $"user/login?username={model.Email}&password={model.Password}";
+
                 HttpResponseMessage response = await client.PostAsync(apiUrl, null);
 
                 if (response.IsSuccessStatusCode)
