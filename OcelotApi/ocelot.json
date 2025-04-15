@@ -36,7 +36,20 @@
         }
       ],
       "UpstreamPathTemplate": "/user/dashboard?userId={userId}",
-      "UpstreamHttpMethod": [ "GET" ]
+      "UpstreamHttpMethod": [ "GET" ],
+
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1m",
+        "PeriodTimespan": 60,
+        "Limit": 5
+      },
+
+      "FileCacheOptions": {
+        "TtlSeconds": 60,
+        "Region": "Dashboard"
+      }
     },
 
     {
@@ -69,7 +82,19 @@
 
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https://localhost:5000"
+    "BaseUrl": "https://localhost:5000",
+
+    "RateLimitOptions": {
+      "EnableRateLimiting": true,
+      "HttpStatusCode": 429,
+      "QuotaExceededMessage": "Too many requests. Please try again later.",
+      "ClientIdHeader": "Client-Id"
+    },
+
+    "CacheOptions": {
+      "TtlSeconds": 60,
+      "Region": "Default"
+    }
   }
 }
 
