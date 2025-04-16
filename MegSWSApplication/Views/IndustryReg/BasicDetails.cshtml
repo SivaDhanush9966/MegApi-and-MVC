@@ -1,0 +1,117 @@
+﻿
+@model MegSWSApplication.Models.IndusRegModels.IndustryDetails
+
+@{
+    ViewBag.CurrentAction = "BasicDetails"; // Or RevenueProjections, etc.
+}
+@Html.Partial("~/Views/Shared/Partials/IndustryRegTabs.cshtml", new { currentAction = ViewBag.CurrentAction })
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Basic Details</h5>
+    
+        @using (Html.BeginForm("SaveIndustryDetails", "Industry", FormMethod.Post, new { @id = "basicDetailsForm" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.CompanyName, "Company Name", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.CompanyPAN, "Company PAN", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.CompanyPAN, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.CompnyRegDt, "Company Registration Date", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.CompnyRegDt, new { @class = "form-control", @type = "date" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.CompnyType, "Company Type", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.CompnyType, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.CompnyProposal, "Company Proposal Type", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.CompnyProposal, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.UdyamorIEMNo, "Udyam / IEM Number", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.UdyamorIEMNo, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.GSTNo, "GST Number", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.GSTNo, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.RegistrationType, "Registration Type", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.RegistrationType, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.RegistrationNo, "Registration Number", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.RegistrationNo, new { @class = "form-control" })
+            </div>
+        </div>
+            <h5>Correspondence Details of Authorised Representative</h5>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.AuthReprName, "Name", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.AuthReprName, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.AuthReprMobile, "Mobile", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.AuthReprMobile, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.AuthReprEmail, "Email", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.AuthReprEmail, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                    @Html.LabelFor(m => m.AuthReprLocality, "Locality", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.AuthReprLocality, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.DoorNo, "Door No.", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.DoorNo, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.REP_STATEID, "State", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.REP_STATEID, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.AuthReprDistID, "District", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.AuthReprDistID, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.AuthReprTalukaID, "Mandal", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.AuthReprTalukaID, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.AuthReprVillageID, "Village", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.AuthReprVillageID, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row mb-3">
+           <div class="col-md-4">
+                @Html.LabelFor(m => m.AuthReprPincode, "Pincode", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.AuthReprPincode, new { @class = "form-control" })
+            </div>        
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+            <button type="submit" class="btn btn-secondary" name="action" value="saveDraft">Save as Draft</button>
+            <button type="submit" class="btn btn-primary" name="action" value="next">Next</button>
+        </div>
+    }
+    </div>
+</div>

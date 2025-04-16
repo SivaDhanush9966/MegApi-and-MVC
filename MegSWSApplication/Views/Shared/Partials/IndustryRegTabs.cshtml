@@ -1,0 +1,28 @@
+﻿@{
+    var currentAction = ViewContext.RouteData.Values["Action"]?.ToString();
+}
+
+<div class="card mb-3">
+    <div class="card-header d-flex gap-2 flex-wrap">
+        <a href="@Url.Action("BasicDetails", "IndustryRegistration")"
+           class="btn @(currentAction == "BasicDetails" ? "btn-warning" : "btn-outline-warning")">
+            1. Basic Details
+        </a>
+
+        <a href="@Url.Action("RevenueProjections", "IndustryRegistration")"
+           class="btn @(currentAction == "RevenueProjections" ? "btn-success" : "btn-outline-success")">
+            2. Revenue Projections
+        </a>
+
+        <a href="@Url.Action("ApplicantDetails", "IndustryRegistration")"
+           class="btn @(currentAction == "ApplicantDetails" ? "btn-info" : "btn-outline-info")">
+            3. Details of the Applicant / Promoter(s) / Partner(s) / Director(s) / Members
+        </a>
+
+        <a href="@Url.Action("Enclosures", "IndustryRegistration")"
+           class="btn @(currentAction == "Enclosures" ? "btn-primary" : "btn-outline-primary")">
+            4. Enclosures
+        </a>
+    </div>
+</div>
+
