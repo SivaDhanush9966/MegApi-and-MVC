@@ -1,0 +1,6 @@
+@IndustryRegApi_HostAddress = http://localhost:5032
+
+GET {{IndustryRegApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

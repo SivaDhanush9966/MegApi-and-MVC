@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MegApi", "MegApi\MegApi.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MegSWSApplication", "MegSWSApplication\MegSWSApplication.csproj", "{2CE0E5E8-0916-41D2-9802-9F96C358E162}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotApi", "OcelotApi\OcelotApi.csproj", "{B50CD39F-22ED-4F7A-9193-1FB1CB676420}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotApi", "OcelotApi\OcelotApi.csproj", "{B50CD39F-22ED-4F7A-9193-1FB1CB676420}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndustryRegApi", "IndustryRegApi\IndustryRegApi.csproj", "{529931CA-DD93-4200-8D18-9D81B0D807DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{B50CD39F-22ED-4F7A-9193-1FB1CB676420}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B50CD39F-22ED-4F7A-9193-1FB1CB676420}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B50CD39F-22ED-4F7A-9193-1FB1CB676420}.Release|Any CPU.Build.0 = Release|Any CPU
+		{529931CA-DD93-4200-8D18-9D81B0D807DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{529931CA-DD93-4200-8D18-9D81B0D807DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{529931CA-DD93-4200-8D18-9D81B0D807DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{529931CA-DD93-4200-8D18-9D81B0D807DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
