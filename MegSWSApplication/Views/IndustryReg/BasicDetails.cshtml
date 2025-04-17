@@ -37,10 +37,7 @@
                     @Html.LabelFor(m => m.IndsDetails.CompnyProposal, "Company Proposal Type", new { @class = "form-label" })
                     @Html.TextBoxFor(m => m.IndsDetails.CompnyProposal, new { @class = "form-control" })
             </div>
-            <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.UdyamorIEMNo, "Udyam / IEM Number", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.UdyamorIEMNo, new { @class = "form-control" })
-            </div>
+           
         </div>
 
         <div class="row mb-3">
@@ -115,9 +112,49 @@
                 <div class="col-md-4">
                     @Html.Label("Is Land Required", "Is Land Required *", new { @class = "form-label" })
                     <div>
-                        @Html.RadioButton("IsLandRequired", "Own Land", true) Own Land
-                        @Html.RadioButton("IsLandRequired", "Required") Required
+                        @Html.RadioButtonFor(m => m.IndsDetails.LandType, "Own Land", new { id = "landOwn" })
+                        <label for="landOwn">Own Land</label>
+
+                        @Html.RadioButtonFor(m => m.IndsDetails.LandType, "Required", new { id = "landRequired" })
+                        <label for="landRequired">Required</label>
                     </div>
+
+
+
+                    
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.IndsDetails.PropLocDoorno, "Door No.", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.IndsDetails.PropLocDoorno, new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.IndsDetails.PropLocLocality, "Locality *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.IndsDetails.PropLocLocality, new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.IndsDetails.PropLocDist, "District *", new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Disttricts, "-- Select District --", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.IndsDetails.PropLocTaluka, "Taluka *", new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.IndsDetails.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.IndsDetails.PropLocVillage, "Village *", new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.IndsDetails.PropLocVillage, Model.Villages, "-- Select Village --", new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.IndsDetails.PropLocPincode, "Pin Code *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.IndsDetails.PropLocPincode, new { @class = "form-control" })
                 </div>
             </div>
 
