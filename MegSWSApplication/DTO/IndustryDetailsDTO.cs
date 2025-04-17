@@ -1,8 +1,6 @@
-﻿using IndustryRegApi.Models;
-
-namespace IndustryRegApi.DTO
+﻿namespace MegSWSApplication.DTO
 {
-    public class IndustryDetailsDTO:IndustryDetails
+    public class IndustryDetailsDTO
     {
         public string UserID { get; set; }
         public int InvesterID { get; set; }
@@ -75,7 +73,5 @@ namespace IndustryRegApi.DTO
         public string LineofAct { get; set; }
         public string pollutionCatgy { get; set; }
         public string workingLoan { get; set; }
-
-
     }
 }

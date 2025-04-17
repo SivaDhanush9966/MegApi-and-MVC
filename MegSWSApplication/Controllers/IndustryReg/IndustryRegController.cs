@@ -10,5 +10,7 @@ namespace MegSWSApplication.Controllers.IndustryReg
         {
             return View(model);
         }
+
+
     }
 }
