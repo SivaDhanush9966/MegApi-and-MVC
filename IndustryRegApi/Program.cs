@@ -10,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IIndustryDetails, IndustryDetailsService>();
+builder.Services.AddScoped<IPromoter, PromoterService>();
 builder.Services.AddScoped<IIndustryFile, IndustryFileService>();
 builder.Services.AddScoped<IInvestmentPlan, InvestmentPlanService>();
 
