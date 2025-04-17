@@ -1,0 +1,98 @@
+﻿@model MegSWSApplication.Models.IndusRegModels.IndustryDetails
+
+@{
+    ViewBag.CurrentAction = "Enclosures"; // Or RevenueProjections, etc.
+}
+@Html.Partial("~/Views/Shared/Partials/IndustryRegTabs.cshtml", new { currentAction = ViewBag.CurrentAction })
+
+<div class="card-body" id="divenclos">
+    <span class="icon4"><i class="fi fi-br-caret-down"></i></span>
+    <h4 class="card-title" style="background: #4794e7; -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 18px; font-weight: 700 !important; font-family: sans-serif;">
+        4. Enclosures
+    </h4>
+
+    <div class="row">
+        <div class="col-md-12" style="padding-top: 10px">
+            @using (Html.BeginForm("UploadEnclosures", "IndustryRegistration", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">1. Firm Registration Certificate <span class="star">*</span></label>
+                    <div class="col-lg-3 d-flex">
+                        <input type="file" name="FirmRegistrationCertificate" class="form-control" />
+                    </div>
+                    <div class="col-lg-1 d-flex">
+                        <button type="submit" name="uploadBtn" value="FirmRegistrationCertificate" class="btn btn-rounded btn-dark mb-4">Upload</button>
+                    </div>
+                    <div class="col-lg-4 d-flex">
+                        @* @if (!string.IsNullOrEmpty(Model.FirmRegistrationFilePath)) *@
+                        @* { *@
+                        @*     <a href="@Url.Content(Model.FirmRegistrationFilePath)" target="_blank">View Uploaded File</a> *@
+                        @* } *@
+                    </div>
+                </div>
+
+                <!-- Repeat structure for each file input -->
+
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">2. Udyam/IEM Document <span class="star">*</span></label>
+                    <div class="col-lg-3 d-flex">
+                        <input type="file" name="UdyamDocument" class="form-control" />
+                    </div>
+                    <div class="col-lg-1 d-flex">
+                        <button type="submit" name="uploadBtn" value="UdyamDocument" class="btn btn-rounded btn-dark mb-4">Upload</button>
+                    </div>
+                    <div class="col-lg-4 d-flex">
+                        @* @if (!string.IsNullOrEmpty(Model.UdyamDocumentFilePath)) *@
+                        @* { *@
+                        @*     <a href="@Url.Content(Model.UdyamDocumentFilePath)" target="_blank">View Uploaded File</a> *@
+                        @* } *@
+                    </div>
+                </div>
+
+                <!-- Repeat for PAN, GST, CIN, DPR, Bank Appraisal -->
+
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">6. Upload Detailed Project Report (DPR)</label>
+                    <div class="col-lg-3 d-flex">
+                        <input type="file" name="DPR" class="form-control" />
+                    </div>
+                    <div class="col-lg-1 d-flex">
+                        <button type="submit" name="uploadBtn" value="DPR" class="btn btn-rounded btn-dark mb-4">Upload</button>
+                    </div>
+                    <div class="col-lg-4 d-flex">
+                        @* @if (!string.IsNullOrEmpty(Model.DPRFilePath)) *@
+                        @* { *@
+                        @*     <a href="@Url.Content(Model.DPRFilePath)" target="_blank">View Uploaded File</a> *@
+                        @* } *@
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-lg-4 col-form-label">7. Bank Appraisal Document <span class="star">*</span></label>
+                    <div class="col-lg-3 d-flex">
+                        <input type="file" name="BankAppraisal" class="form-control" />
+                    </div>
+                    <div class="col-lg-1 d-flex">
+                        <button type="submit" name="uploadBtn" value="BankAppraisal" class="btn btn-rounded btn-dark mb-4">Upload</button>
+                    </div>
+                    <div class="col-lg-4 d-flex">
+                        @* @if (!string.IsNullOrEmpty(Model.BankAppraisalFilePath)) *@
+                        @* { *@
+                        @*     <a href="@Url.Content(Model.BankAppraisalFilePath)" target="_blank">View Uploaded File</a> *@
+                        @* } *@
+                    </div>
+                </div>
+
+                <div class="form-group row mt-4">
+                    <div class="col-md-10 offset-md-2 text-right">
+                        <button type="submit" name="action" value="Previous" class="btn btn-rounded btn-info btn-lg" style="width:150px;">Previous</button>
+                        <button type="submit" name="action" value="Preview" class="btn btn-rounded btn-update btn-lg" style="width:150px;">Preview</button>
+                        <button type="submit" name="action" value="Submit" class="btn btn-rounded btn-submit btn-lg" style="width:150px; background-color: green;">Submit</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
