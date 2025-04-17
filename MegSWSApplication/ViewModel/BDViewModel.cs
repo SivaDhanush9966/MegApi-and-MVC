@@ -4,7 +4,7 @@ namespace MegSWSApplication.ViewModel
 {
     public class BDViewModel
     {
-        IndustryDetails IndsDetails;
+      public  IndustryDetails IndsDetails  = new IndustryDetails();
 
     }
 }

@@ -1,5 +1,4 @@
-﻿
-@model MegSWSApplication.Models.IndusRegModels.IndustryDetails
+﻿@model MegSWSApplication.ViewModel.BDViewModel;
 
 @{
     ViewBag.CurrentAction = "BasicDetails"; // Or RevenueProjections, etc.
@@ -14,10 +13,10 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="row mb-3">
+      @*   <div class="row mb-3">
             <div class="col-md-4">
-                @Html.LabelFor(m => m.CompanyName, "Company Name", new { @class = "form-label" })
-                @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.IndsDetails.CompanyName, "Company Name", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.IndsDetails.CompanyName, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
                 @Html.LabelFor(m => m.CompanyPAN, "Company PAN", new { @class = "form-label" })
@@ -108,7 +107,7 @@
                 @Html.LabelFor(m => m.AuthReprPincode, "Pincode", new { @class = "form-label" })
                     @Html.TextBoxFor(m => m.AuthReprPincode, new { @class = "form-control" })
             </div>        
-        </div>
+        </div> *@
 
         <div class="d-flex justify-content-between mt-4">
             <button type="submit" class="btn btn-secondary" name="action" value="saveDraft">Save as Draft</button>
