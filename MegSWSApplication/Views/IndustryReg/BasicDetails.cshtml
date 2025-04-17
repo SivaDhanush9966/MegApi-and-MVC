@@ -106,9 +106,58 @@
         <div class="row mb-3">
         <div class="col-md-4">
                 @Html.LabelFor(m => m.AuthReprPincode, "Pincode", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.AuthReprPincode, new { @class = "form-control" })
+                @Html.TextBoxFor(m => m.AuthReprPincode, new { @class = "form-control" })
             </div>        
         </div>
+
+     <h5>Location of Unit</h5>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    @Html.Label("Is Land Required", "Is Land Required *", new { @class = "form-label" })
+                    <div>
+                        @Html.RadioButton("IsLandRequired", "Own Land", true) Own Land
+                        @Html.RadioButton("IsLandRequired", "Required") Required
+                    </div>
+                </div>
+            </div>
+
+            @* <div class="row mb-3">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.DoorNo, "Door No.", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.DoorNo, new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Locality, "Locality *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.Locality, new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.District, "District *", new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.District, Model.DistrictList, "-- Select District --", new { @class = "form-control" })
+                </div>
+            </div>
+ *@
+           @*  <div class="row mb-3">
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Taluka, "Taluka *", new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.Taluka, Model.TalukaList, "-- Select Taluka --", new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.Village, "Village *", new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.Village, Model.VillageList, "-- Select Village --", new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.PinCode, "Pin Code *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.PinCode, new { @class = "form-control" })
+                </div>
+            </div> *@
+    
+
+    
 
         <div class="d-flex justify-content-between mt-4">
             <button type="submit" class="btn btn-secondary" name="action" value="saveDraft">Save as Draft</button>
