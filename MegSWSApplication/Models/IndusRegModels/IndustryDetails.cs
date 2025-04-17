@@ -25,7 +25,7 @@
         public string LandType { get; set; }
         public string PropLocDoorno { get; set; }
         public string PropLocLocality { get; set; }
-        public string PropLocDist { get; set; }
+        public string Manfproduct { get; set; }
         public string PropLocDistID { get; set; }
         public string PropLocTaluka { get; set; }
         public string PropLocTalukaID { get; set; }
@@ -34,17 +34,15 @@
         public string PropLocPincode { get; set; }
         public string NatureofActivity { get; set; }
         public string ManfActivity { get; set; }
-        public string Manfproduct { get; set; }
         public string ServiceActivity { get; set; }
         public string ServiceTobeProviding { get; set; }
         public string ProductionNO { get; set; }
         public string ServiceNo { get; set; }
-        public string DCPorOperation { get; set; }
+        public string ProductManufactured { get; set; }
         public string AnnualCapacity { get; set; }
-        public string EstimatedProjCost { get; set; }
+        public string PlantnMachineryCost { get; set; }
         public string LandAreainSqft { get; set; }
         public string CivilConstr { get; set; }
-        public string PlantnMachineryCost { get; set; }
         public string Rawmaterial { get; set; }
         public string BuildingAreaSqm { get; set; }
         public string WaterReqKLD { get; set; }

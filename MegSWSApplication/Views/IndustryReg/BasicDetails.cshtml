@@ -15,94 +15,77 @@
 
         <div class="row mb-3">
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.CompanyName, "Company Name", new { @class = "form-label" })
-                @Html.TextBoxFor(m => m.IndsDetails.CompanyName, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.CompanyName, "Company Name", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.industryDetailsDTO.CompanyName, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.CompanyPAN, "Company PAN", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.CompanyPAN, new { @class = "form-control" })
-            </div>
-            <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.CompnyRegDt, "Company Registration Date", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.CompnyRegDt, new { @class = "form-control", @type = "date" })
-            </div>
-        </div>
-
-        <div class="row mb-3">
-            <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.CompnyType, "Company Type", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.CompnyType, new { @class = "form-control" })
-            </div>
-            <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.CompnyProposal, "Company Proposal Type", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.CompnyProposal, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.CompanyPAN, "Company PAN", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.CompanyPAN, new { @class = "form-control" })
             </div>
            
         </div>
 
         <div class="row mb-3">
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.GSTNo, "GST Number", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.GSTNo, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.CompnyType, "Company Type", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.CompnyType, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.RegistrationType, "Registration Type", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.RegistrationType, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.CompnyProposal, "Company Proposal Type", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.CompnyProposal, new { @class = "form-control" })
             </div>
+           
+        </div>
+
+        <div class="row mb-3">
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.RegistrationNo, "Registration Number", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.RegistrationNo, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.GSTNo, "GST Number", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.GSTNo, new { @class = "form-control" })
             </div>
+            
         </div>
 
         <h5>Correspondence Details of Authorised Representative</h5>
 
         <div class="row mb-3">
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.AuthReprName, "Name", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.AuthReprName, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.AuthReprName, "Name", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.AuthReprName, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.AuthReprMobile, "Mobile", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.AuthReprMobile, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.AuthReprMobile, "Mobile", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.AuthReprMobile, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.AuthReprEmail, "Email", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.AuthReprEmail, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.AuthReprLocality, "Locality", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.AuthReprLocality, new { @class = "form-control" })
-            </div>
-            <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.DoorNo, "Door No.", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.DoorNo, new { @class = "form-control" })
-            </div>
-            <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.REP_STATEID, "State", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.REP_STATEID, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.AuthReprEmail, "Email", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.AuthReprEmail, new { @class = "form-control" })
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.AuthReprDistID, "District", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.AuthReprDistID, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.AuthReprLocality, "Locality", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.AuthReprLocality, new { @class = "form-control" })
+            </div>
+           
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.AuthReprDistID, "District", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.AuthReprDistID, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.AuthReprTalukaID, "Mandal", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.AuthReprTalukaID, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.AuthReprTalukaID, "Mandal", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.AuthReprTalukaID, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.AuthReprVillageID, "Village", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.AuthReprVillageID, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.AuthReprVillageID, "Village", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.AuthReprVillageID, new { @class = "form-control" })
             </div>
         </div>
         <div class="row mb-3">
         <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.AuthReprPincode, "Pincode", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.AuthReprPincode, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.AuthReprPincode, "Pincode", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.AuthReprPincode, new { @class = "form-control" })
             </div>        
         </div>
 
@@ -112,10 +95,10 @@
                 <div class="col-md-4">
                     @Html.Label("Is Land Required", "Is Land Required *", new { @class = "form-label" })
                     <div>
-                        @Html.RadioButtonFor(m => m.IndsDetails.LandType, "Own Land", new { id = "landOwn" })
+                        @Html.RadioButtonFor(m => m.industryDetailsDTO.LandType, "Own Land", new { id = "landOwn" })
                         <label for="landOwn">Own Land</label>
 
-                        @Html.RadioButtonFor(m => m.IndsDetails.LandType, "Required", new { id = "landRequired" })
+                        @Html.RadioButtonFor(m => m.industryDetailsDTO.LandType, "Required", new { id = "landRequired" })
                         <label for="landRequired">Required</label>
                     </div>
 
@@ -126,72 +109,165 @@
             </div>
             <div class="row mb-3">
                 <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.PropLocDoorno, "Door No.", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.PropLocDoorno, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.PropLocDoorno, "Door No.", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.PropLocDoorno, new { @class = "form-control" })
                 </div>
 
                 <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.PropLocLocality, "Locality *", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.PropLocLocality, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.PropLocLocality, "Locality *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.PropLocLocality, new { @class = "form-control" })
                 </div>
 
                 <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.PropLocDist, "District *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Disttricts, "-- Select District --", new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.PropLocDist, "PropLocDist *", new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.industryDetailsDTO.PropLocDist, Model.Disttricts, "-- Select District --", new { @class = "form-control" })
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.PropLocTaluka, "Taluka *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.PropLocTaluka, "Taluka *", new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.industryDetailsDTO.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control" })
                 </div>
 
                 <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.PropLocVillage, "Village *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocVillage, Model.Villages, "-- Select Village --", new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.PropLocVillage, "Village *", new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.industryDetailsDTO.PropLocVillage, Model.Villages, "-- Select Village --", new { @class = "form-control" })
                 </div>
 
                 <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.PropLocPincode, "Pin Code *", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.PropLocPincode, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.PropLocPincode, "Pin Code *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.PropLocPincode, new { @class = "form-control" })
                 </div>
             </div>
 
-            @* <div class="row mb-3">
+            <div class="row mb-3">
                 <div class="col-md-4">
-                    @Html.LabelFor(m => m.DoorNo, "Door No.", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.DoorNo, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.NatureofActivity, "NatureofActivity.", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.NatureofActivity, new { @class = "form-control" })
                 </div>
 
                 <div class="col-md-4">
-                    @Html.LabelFor(m => m.Locality, "Locality *", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.Locality, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.ManfActivity, "ManfActivity *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.ManfActivity, new { @class = "form-control" })
                 </div>
 
                 <div class="col-md-4">
-                    @Html.LabelFor(m => m.District, "District *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.District, Model.DistrictList, "-- Select District --", new { @class = "form-control" })
+                    @Html.LabelFor(m => m.industryDetailsDTO.ServiceActivity, "ServiceActivity *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.ServiceActivity, new { @class = "form-control" })
                 </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.ServiceTobeProviding, "ServiceTobeProviding *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.ServiceTobeProviding, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.ProductionNO, "ProductionNO *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.ProductionNO, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.ServiceNo, "ServiceNo *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.ServiceNo, new { @class = "form-control" })
+                </div>
+
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.ProductManufactured, "ProductManufactured *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.ProductManufactured, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.AnnualCapacity, "AnnualCapacity *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.AnnualCapacity, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.MeasurementUnits, "MeasurementUnits *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.MeasurementUnits, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.ProjectDCP, "ProjectDCP *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.ProjectDCP, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.CivilConstr, "CivilConstr *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.CivilConstr, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.PlantnMachineryCost, "PlantnMachineryCost *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.PlantnMachineryCost, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.BuildingAreaSqm, "BuildingAreaSqm *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.BuildingAreaSqm, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.WaterReqKLD, "WaterReqKLD *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.WaterReqKLD, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.PowerReqKV, "PowerReqKV *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.PowerReqKV, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.WasteDetails, "WasteDetails *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.WasteDetails, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.HazWasteDetails, "HazWasteDetails *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.HazWasteDetails, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.CapitalInvestment, "CapitalInvestment *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.CapitalInvestment, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.FixedAssets, "FixedAssets *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.FixedAssets, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.LandValue, "LandValue *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.LandValue, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.BuildingValue, "BuildingValue *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.BuildingValue, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.WorkingCapital, "WorkingCapital *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.WorkingCapital, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.EquityAmount, "EquityAmount *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.EquityAmount, new { @class = "form-control" })
+                </div><div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.UnsecuredLoan, "UnsecuredLoan *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.UnsecuredLoan, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.CetralSchemeAmount, "CetralSchemeAmount *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.CetralSchemeAmount, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.StateSchemeAmount, "StateSchemeAmount *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.StateSchemeAmount, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.Sector, "Sector *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.Sector, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.LineofAct, "LineofAct *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.LineofAct, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.pollutionCatgy, "pollutionCatgy *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.pollutionCatgy, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.LabelFor(m => m.industryDetailsDTO.workingLoan, "workingLoan *", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.industryDetailsDTO.workingLoan, new { @class = "form-control" })
+                </div>
+
+
             </div>
- *@
-           @*  <div class="row mb-3">
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.Taluka, "Taluka *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.Taluka, Model.TalukaList, "-- Select Taluka --", new { @class = "form-control" })
-                </div>
 
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.Village, "Village *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.Village, Model.VillageList, "-- Select Village --", new { @class = "form-control" })
-                </div>
-
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.PinCode, "Pin Code *", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.PinCode, new { @class = "form-control" })
-                </div>
-            </div> *@
-    
 
     
 
