@@ -137,7 +137,7 @@
 
                 <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.PropLocDist, "District *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" })
                     @* @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control" }) *@
                 </div>
             </div>
@@ -145,13 +145,13 @@
             <div class="row mb-3">
                 <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.PropLocTaluka, "Taluka *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control" })
-                    @* @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
+                    @Html.DropDownListFor(m => m.IndsDetails.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control", onchange = "this.form.submit();" })
+                    
                 </div>
 
                 <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.PropLocVillage, "Village *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocVillage, Model.Villages, "-- Select Village --", new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.IndsDetails.PropLocVillage, Model.Villages, "-- Select Village --", new { @class = "form-control", onchange = "this.form.submit();" })
                 </div>
 
                 <div class="col-md-4">
