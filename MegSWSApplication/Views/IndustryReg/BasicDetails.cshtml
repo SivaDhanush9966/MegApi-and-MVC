@@ -15,11 +15,11 @@
 
         <div class="row mb-3">
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.CompanyName, "Company Name", new { @class = "form-label" })
+                    @Html.LabelFor(m => m.IndsDetails.CompanyName, "CompanyName", new { @class = "form-label" })
                 @Html.TextBoxFor(m => m.IndsDetails.CompanyName, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.CompanyPAN, "Company PAN", new { @class = "form-label" })
+                    @Html.LabelFor(m => m.IndsDetails.CompanyPAN, "Pan Card No", new { @class = "form-label" })
                     @Html.TextBoxFor(m => m.IndsDetails.CompanyPAN, new { @class = "form-control" })
             </div>
             
@@ -28,10 +28,14 @@
         <div class="row mb-3">
             <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.CompnyType, "Company Type", new { @class = "form-label" })
+                    @* @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
+
                     @Html.TextBoxFor(m => m.IndsDetails.CompnyType, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.CompnyProposal, "Company Proposal Type", new { @class = "form-label" })
+                    @* @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
+
                     @Html.TextBoxFor(m => m.IndsDetails.CompnyProposal, new { @class = "form-control" })
             </div>
            
@@ -73,21 +77,25 @@
             </div>
             <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.AutoState, "State", new { @class = "form-label" })
+
                     @Html.TextBoxFor(m => m.IndsDetails.AutoState, new { @class = "form-control" })
             </div>
         </div>
         <div class="row mb-3">
             <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.AuthReprDistID, "District", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.AuthReprDistID, new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" })
+
             </div>
             <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.AuthReprTalukaID, "Mandal", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.AuthReprTalukaID, new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.IndsDetails.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control", onchange = "this.form.submit();" })
+
             </div>
             <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.AuthReprVillageID, "Village", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.AuthReprVillageID, new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.IndsDetails.PropLocVillage, Model.Villages, "-- Select Village --", new { @class = "form-control", onchange = "this.form.submit();" })
+
             </div>
         </div>
         <div class="row mb-3">
@@ -150,12 +158,18 @@
                     @Html.TextBoxFor(m => m.IndsDetails.PropLocPincode, new { @class = "form-control" })
                 </div>
             </div>
-
+            <h5>Project Details</h5>
             <div class="row mb-3">
                 <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.NatureofActivity, "NatureofActivity.", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.NatureofActivity, new { @class = "form-control" })
-                </div>
+                    @Html.Label("NatureofActivity", "NatureOfActivity *", new { @class = "form-label" })
+                    <div>
+                        @Html.RadioButtonFor(m => m.IndsDetails.NatureofActivity, "Manufacture", new { id = "manufature" })
+                        <label for="landOwn">Own Land</label>
+
+                        @Html.RadioButtonFor(m => m.IndsDetails.NatureofActivity, "Service", new { id = "service" })
+                        <label for="landRequired">Required</label>
+                    </div>
+               </div>
 
                 <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.ManfActivity, "ManfActivity *", new { @class = "form-label" })
