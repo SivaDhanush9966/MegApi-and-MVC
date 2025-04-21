@@ -76,12 +76,12 @@
                     @Html.TextBoxFor(m => m.IndsDetails.AutoDoorNo, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.AutoState, "State", new { @class = "form-label" })
-
-                    @Html.TextBoxFor(m => m.IndsDetails.AutoState, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.IndsDetails, "State", new { @class = "form-label" })
+                    @Html.DropDownListFor(m => m.IndsDetails.PropLocState, Model.States, "-- Select State --", new { @class = "form-control", onchange = "this.form.submit();" })
+                    @* @Html.TextBoxFor(m => m.IndsDetails.AutoState, new { @class = "form-control" }) *@
             </div>
         </div>
-        <div class="row mb-3">
+        <div class="row mb-3" id="prolocation">
             <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.AuthReprDistID, "District", new { @class = "form-label" })
                     @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" })

@@ -24,6 +24,7 @@ namespace MegSWSApplication.Controllers.IndustryReg
             var model = new BDViewModel
             {
                 IndsDetails = new IndustryDetailsDTO(),
+                States = await LoadStateAsync(),
                 Districts = await LoadDistrictsAsync(),
                 Talukas = new List<SelectListItem>(),
                 Villages = new List<SelectListItem>()
@@ -38,6 +39,7 @@ namespace MegSWSApplication.Controllers.IndustryReg
         {
             if (!ModelState.IsValid)
             {
+                model.States = await LoadStateAsync();
                 model.Districts = await LoadDistrictsAsync();
                 model.Talukas = await LoadTalukasAsync(model.IndsDetails.PropLocDist);
                 model.Villages = await LoadVillagesAsync(model.IndsDetails.PropLocTaluka);
@@ -109,7 +111,14 @@ namespace MegSWSApplication.Controllers.IndustryReg
         }
 
         // ──── Helpers ───────────────────────────────────────────────────────────
-
+        public async Task<List<SelectListItem>> LoadStateAsync()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var dtos = await client.GetFromJsonAsync<List<StateDTO>>("https://localhost:7120/api/Location/states");
+            return dtos
+                .Select(d => new SelectListItem { Value = d.Id.ToString(), Text = d.Name })
+                .ToList();
+        }
         private async Task<List<SelectListItem>> LoadDistrictsAsync()
         {
             var client = _httpClientFactory.CreateClient();
