@@ -24,27 +24,51 @@ namespace MegSWSApplication.Controllers.IndustryReg
             var model = new BDViewModel
             {
                 IndsDetails = new IndustryDetailsDTO(),
+                States = await LoadStateAsync(),
                 Districts = await LoadDistrictsAsync(),
                 Talukas = new List<SelectListItem>(),
                 Villages = new List<SelectListItem>()
             };
             return View(model);
         }
-
-        // 2️⃣ POST: handle submit, re‑populate on error
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> BasicDetails(BDViewModel model, string action)
         {
-            if (!ModelState.IsValid)
+            string selectedStateNameAuth = await GetStateNameById(model.IndsDetails.AuthState  );
+            string selectedStateNameProp = await GetStateNameById(model.IndsDetails.PropLocStateId);
+
+            // Set the Meghalaya check first
+            if (!string.IsNullOrEmpty(model.IndsDetails.AuthState))
+            {
+                model.IsMeghalayaSelectedAuth = selectedStateNameAuth.Equals("Meghalaya", StringComparison.OrdinalIgnoreCase);
+            }
+            if(!string.IsNullOrEmpty(model.IndsDetails.PropLocStateId))
+            {
+                model.IsMeghalayaSelectedProp = selectedStateNameProp.Equals("Meghalaya", StringComparison.OrdinalIgnoreCase);
+            }
+            // Reload all dropdowns as needed
+            model.States = await LoadStateAsync();
+
+            if (model.IsMeghalayaSelectedAuth)
             {
                 model.Districts = await LoadDistrictsAsync();
-                model.Talukas = await LoadTalukasAsync(model.IndsDetails.PropLocDist);
-                model.Villages = await LoadVillagesAsync(model.IndsDetails.PropLocTaluka);
+                model.Talukas = await LoadTalukasAsync(model.IndsDetails.PropLocDist);                
+                model.Villages = await LoadVillagesAsync(model.IndsDetails.PropLocTaluka);                
+            }
+            if (model.IsMeghalayaSelectedProp)
+            {
+                model.Districts = await LoadDistrictsAsync();
+                model.Talukas = await LoadTalukasAsync(model.IndsDetails.AuthReprDistID);
+                model.Villages = await LoadVillagesAsync(model.IndsDetails.AuthReprTalukaID);
+            }
+
+            if (!ModelState.IsValid)
+            {
                 return View(model);
             }
 
-            // TODO: save model.IndsDetails into your database here…
+            // TODO: Save model.IndsDetails into your database here…
 
             if (action == "saveDraft")
                 TempData["Message"] = "Saved as draft";
@@ -52,7 +76,29 @@ namespace MegSWSApplication.Controllers.IndustryReg
             return RedirectToAction("BasicDetails");
         }
 
-         //3️⃣ AJAX helper: all Districts(no parameter)
+        // 2️⃣ POST: handle submit, re‑populate on error
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> BasicDetails(BDViewModel model, string action)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        model.States = await LoadStateAsync();
+        //        model.Districts = await LoadDistrictsAsync();
+        //        model.Talukas = await LoadTalukasAsync(model.IndsDetails.PropLocDist);
+        //        model.Villages = await LoadVillagesAsync(model.IndsDetails.PropLocTaluka);
+        //        return View(model);
+        //    }
+
+        //    // TODO: save model.IndsDetails into your database here…
+
+        //    if (action == "saveDraft")
+        //        TempData["Message"] = "Saved as draft";
+
+        //    return RedirectToAction("BasicDetails");
+        //}
+
+        //3️⃣ AJAX helper: all Districts(no parameter)
 
         //[HttpPost]
         //[ValidateAntiForgeryToken]
@@ -84,7 +130,6 @@ namespace MegSWSApplication.Controllers.IndustryReg
         //    return View(model);
         //}
 
-
         [HttpGet]
         public async Task<IActionResult> GetDistricts()
         {
@@ -110,6 +155,30 @@ namespace MegSWSApplication.Controllers.IndustryReg
 
         // ──── Helpers ───────────────────────────────────────────────────────────
 
+        public async Task<string> GetStateNameById(string stateId)
+        {
+            if (string.IsNullOrEmpty(stateId))
+                return string.Empty;
+
+            var states = await LoadStateAsync();
+
+            if (states == null || !states.Any())
+                return string.Empty;
+
+            var matched = states.FirstOrDefault(s => s?.Value == stateId);
+            return matched?.Text ?? string.Empty;
+        }
+        public async Task<List<SelectListItem>> LoadStateAsync()
+        {
+            var client = _httpClientFactory.CreateClient();
+            var dtos = await client.GetFromJsonAsync<List<StateDTO>>("https://localhost:7120/api/Location/states");
+
+            if (dtos == null)
+                return new List<SelectListItem>();
+            return dtos
+                .Select(d => new SelectListItem { Value = d.Id.ToString(), Text = d.Name })
+                .ToList();
+        }
         private async Task<List<SelectListItem>> LoadDistrictsAsync()
         {
             var client = _httpClientFactory.CreateClient();

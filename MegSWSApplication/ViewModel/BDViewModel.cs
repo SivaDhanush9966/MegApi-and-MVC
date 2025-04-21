@@ -11,7 +11,11 @@ namespace MegSWSApplication.ViewModel
         public List<SelectListItem> Districts { get; set; } // for the first dropdown
         public List<SelectListItem> Talukas { get; set; } // for the second
         public List<SelectListItem> Villages { get; set; } // for the third
+        public bool IsMeghalayaSelectedAuth { get; set; } // for the first dropdown
 
+        public bool IsMeghalayaSelectedProp { get; set; } // for the second dropdown
+
+        public int ScrollPosition { get; set; }
 
     }
 }
