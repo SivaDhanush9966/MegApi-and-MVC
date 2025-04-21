@@ -18,6 +18,9 @@
         public string AuthReprLocality { get; set; }
         public string AuthReprDist { get; set; }
         public string AuthReprDistID { get; set; }
+        public string AutoDoorNo { get; set; }
+        public string AutoState { get; set; }
+
 
         public string AuthReprTaluka { get; set; }
         public string AuthReprTalukaID { get; set; }

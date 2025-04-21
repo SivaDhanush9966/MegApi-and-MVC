@@ -22,10 +22,7 @@
                     @Html.LabelFor(m => m.IndsDetails.CompanyPAN, "Company PAN", new { @class = "form-label" })
                     @Html.TextBoxFor(m => m.IndsDetails.CompanyPAN, new { @class = "form-control" })
             </div>
-            <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.CompnyRegDt, "Company Registration Date", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.CompnyRegDt, new { @class = "form-control", @type = "date" })
-            </div>
+            
         </div>
 
         <div class="row mb-3">
@@ -45,15 +42,9 @@
                     @Html.LabelFor(m => m.IndsDetails.GSTNo, "GST Number", new { @class = "form-label" })
                     @Html.TextBoxFor(m => m.IndsDetails.GSTNo, new { @class = "form-control" })
             </div>
-            <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.RegistrationType, "Registration Type", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.RegistrationType, new { @class = "form-control" })
-            </div>
-            <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.RegistrationNo, "Registration Number", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.RegistrationNo, new { @class = "form-control" })
-            </div>
+           
         </div>
+
 
         <h5>Correspondence Details of Authorised Representative</h5>
 
@@ -77,12 +68,12 @@
                     @Html.TextBoxFor(m => m.IndsDetails.AuthReprLocality, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.DoorNo, "Door No.", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.DoorNo, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.IndsDetails.AutoDoorNo, "Door No.", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.IndsDetails.AutoDoorNo, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.REP_STATEID, "State", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.REP_STATEID, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.IndsDetails.AutoState, "State", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.IndsDetails.AutoState, new { @class = "form-control" })
             </div>
         </div>
         <div class="row mb-3">
@@ -160,41 +151,7 @@
                 </div>
             </div>
 
-            @* <div class="row mb-3">
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.DoorNo, "Door No.", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.DoorNo, new { @class = "form-control" })
-                </div>
-
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.Locality, "Locality *", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.Locality, new { @class = "form-control" })
-                </div>
-
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.District, "District *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.District, Model.DistrictList, "-- Select District --", new { @class = "form-control" })
-                </div>
-            </div>
- *@
-           @*  <div class="row mb-3">
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.Taluka, "Taluka *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.Taluka, Model.TalukaList, "-- Select Taluka --", new { @class = "form-control" })
-                </div>
-
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.Village, "Village *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.Village, Model.VillageList, "-- Select Village --", new { @class = "form-control" })
-                </div>
-
-                <div class="col-md-4">
-                    @Html.LabelFor(m => m.PinCode, "Pin Code *", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.PinCode, new { @class = "form-control" })
-                </div>
-            </div> *@
-    
-
+          
     
 
         <div class="d-flex justify-content-between mt-4">
