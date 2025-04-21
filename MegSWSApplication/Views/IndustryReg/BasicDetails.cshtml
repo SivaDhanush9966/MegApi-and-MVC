@@ -72,30 +72,51 @@
                     @Html.TextBoxFor(m => m.IndsDetails.AuthReprLocality, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails.AutoDoorNo, "Door No.", new { @class = "form-label" })
-                    @Html.TextBoxFor(m => m.IndsDetails.AutoDoorNo, new { @class = "form-control" })
+                    @Html.LabelFor(m => m.IndsDetails.AuthDoorNo, "Door No.", new { @class = "form-label" })
+                    @Html.TextBoxFor(m => m.IndsDetails.AuthDoorNo, new { @class = "form-control" })
             </div>
             <div class="col-md-4">
-                    @Html.LabelFor(m => m.IndsDetails, "State", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.ProductionNO, Model.States, "-- Select State --", new { @class = "form-control", onchange = "this.form.submit();" })
-                    @* @Html.TextBoxFor(m => m.IndsDetails.AutoState, new { @class = "form-control" }) *@
+                    @Html.LabelFor(m => m.IndsDetails.AuthState, "State", new { @class = "form-label", onchange = "this.form.submit();" })
+
+                    @Html.DropDownListFor(m => m.IndsDetails.AuthState, Model.States, "-- Select State --", new { @class = "form-control", onchange = "this.form.submit();" })
             </div>
         </div>
         <div class="row mb-3" id="prolocation">
             <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.AuthReprDistID, "District", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" })
-
+                    @* @Html.DropDownListFor(m => m.IndsDetails.AuthReprDistID, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
+                    @if (Model.IsMeghalayaSelectedAuth)
+                    {
+                        @Html.DropDownListFor(m => m.IndsDetails.AuthReprDistID, Model.States, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" })
+                    }
+                    else
+                    {
+                        @Html.TextBoxFor(m => m.IndsDetails.AuthReprDist, new { @class = "form-control" })
+                    }
             </div>
             <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.AuthReprTalukaID, "Mandal", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control", onchange = "this.form.submit();" })
-
+                    @* @Html.DropDownListFor(m => m.IndsDetails.AuthReprTalukaID, Model.Talukas, "-- Select Taluka --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
+                    @if (Model.IsMeghalayaSelectedAuth)
+                    {
+                        @Html.DropDownListFor(m => m.IndsDetails.AuthReprTalukaID, Model.States, "-- Select Taluka --", new { @class = "form-control", onchange = "this.form.submit();" })
+                    }
+                    else
+                    {
+                        @Html.TextBoxFor(m => m.IndsDetails.AuthReprTaluka, new { @class = "form-control" })
+                    }
             </div>
             <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.AuthReprVillageID, "Village", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocVillage, Model.Villages, "-- Select Village --", new { @class = "form-control", onchange = "this.form.submit();" })
-
+                    @* @Html.DropDownListFor(m => m.IndsDetails.AuthReprVillageID, Model.Villages, "-- Select Village --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
+                    @if (Model.IsMeghalayaSelectedAuth)
+                    {
+                        @Html.DropDownListFor(m => m.IndsDetails.AuthReprVillageID, Model.States, "-- Select Village --", new { @class = "form-control", onchange = "this.form.submit();" })
+                    }
+                    else
+                    {
+                        @Html.TextBoxFor(m => m.IndsDetails.AuthReprVillage, new { @class = "form-control" })
+                    }
             </div>
         </div>
         <div class="row mb-3">
@@ -136,13 +157,20 @@
 
                 <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.PropLocState, "State", new { @class = "form-label" })
-
-                    @Html.TextBoxFor(m => m.IndsDetails.AutoState, new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.IndsDetails.PropLocStateId, Model.States, "-- Select State --", new { @class = "form-control", onchange = "this.form.submit();" })
                 </div>
 
                 <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.PropLocDist, "District *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" })
+                    @if (Model.IsMeghalayaSelectedProp)
+                    {
+                        @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" })
+                    }
+                    else
+                    {
+                        @Html.TextBoxFor(m => m.IndsDetails.PropLocDist, new { @class = "form-control" })
+                    }
+                    @* @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
                     @* @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control" }) *@
                 </div>
             </div>
@@ -150,13 +178,28 @@
             <div class="row mb-3">
                 <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.PropLocTaluka, "Taluka *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control", onchange = "this.form.submit();" })
-                    
+                    @* @Html.DropDownListFor(m => m.IndsDetails.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
+                    @if (Model.IsMeghalayaSelectedProp)
+                    {
+                        @Html.DropDownListFor(m => m.IndsDetails.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control", onchange = "this.form.submit();" })
+                    }
+                    else
+                    {
+                        @Html.TextBoxFor(m => m.IndsDetails.PropLocTaluka, new { @class = "form-control" })
+                    }
                 </div>
 
                 <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.PropLocVillage, "Village *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocVillage, Model.Villages, "-- Select Village --", new { @class = "form-control", onchange = "this.form.submit();" })
+                    @* @Html.DropDownListFor(m => m.IndsDetails.PropLocVillage, Model.Villages, "-- Select Village --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
+                    @if (Model.IsMeghalayaSelectedProp)
+                    {
+                        @Html.DropDownListFor(m => m.IndsDetails.PropLocVillage, Model.Villages, "-- Select Village --", new { @class = "form-control" })
+                    }
+                    else
+                    {
+                        @Html.TextBoxFor(m => m.IndsDetails.PropLocVillage, new { @class = "form-control" })
+                    }
                 </div>
 
                 <div class="col-md-4">

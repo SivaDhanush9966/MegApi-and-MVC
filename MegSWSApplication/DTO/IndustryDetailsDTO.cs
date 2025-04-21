@@ -33,6 +33,7 @@
         public string LandType { get; set; }
         public string PropLocDoorno { get; set; }
         public string PropLocLocality { get; set; }
+        public string PropLocStateId { get; set; }
         public string PropLocState { get; set; }
 
         public string PropLocDist { get; set; }
