@@ -1,4 +1,5 @@
-﻿using MegSWSApplication.DTO.Master;
+﻿using MegSWSApplication.DTO;
+using MegSWSApplication.DTO.Master;
 using MegSWSApplication.Models.IndusRegModels;
 using MegSWSApplication.ViewModel;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +23,7 @@ namespace MegSWSApplication.Controllers.IndustryReg
         {
             var model = new BDViewModel
             {
-                IndsDetails = new IndsDetails(),
+                IndsDetails = new IndustryDetailsDTO(),
                 Districts = await LoadDistrictsAsync(),
                 Talukas = new List<SelectListItem>(),
                 Villages = new List<SelectListItem>()

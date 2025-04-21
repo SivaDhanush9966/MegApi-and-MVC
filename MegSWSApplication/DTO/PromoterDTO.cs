@@ -1,8 +1,6 @@
-﻿using IndustryRegApi.Models;
-
-namespace IndustryRegApi.DTO
+﻿namespace MegSWSApplication.DTO
 {
-    public class PromoterDTO : Promoter
+    public class PromoterDTO
     {
         public string IDD_FIRSTNAME { get; set; }
         public string IDD_LASTNAME { get; set; }
@@ -25,6 +23,5 @@ namespace IndustryRegApi.DTO
         public string IDD_MANDALName { get; set; }
         public string IDD_CITYName { get; set; }
         public string IDD_PHONE { get; set; }
-
     }
 }

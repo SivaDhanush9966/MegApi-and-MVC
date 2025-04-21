@@ -1,98 +1,120 @@
-﻿@model MegSWSApplication.Models.IndusRegModels.IndustryPromoter
+﻿@* @model MegSWSApplication.Models.IndusRegModels.IndustryPromoter *@
+@model MegSWSApplication.ViewModel.PromoterViewModel;
+
 
 @{
-	ViewBag.CurrentAction = "ApplicantDetails"; // Or Promoter Details, etc.
+	ViewBag.CurrentAction = "PromoterDetailsIdx"; // Or Promoter Details, etc.
 }
+@Html.Partial("~/Views/Shared/Partials/IndustryRegTabs.cshtml", new { currentAction = ViewBag.CurrentAction })
 
 <div class="card">
 	<div class="card-body">
 		<h5 class="card-title">Promoter Details</h5>
 
-		@using (Html.BeginForm("SavePromoterDetails", "Industry", FormMethod.Post, new { @id = "promoterDetailsForm" }))
+		@using (Html.BeginForm("PromoterDetailsIdx", "PromoterReg", FormMethod.Post, new { @id = "promoterDetailsForm" }))
 		{
 			@Html.AntiForgeryToken()
 
 			<div class="row mb-3">
 				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_FIRSTNAME, "First Name", new { @class = "form-label" })
-					@Html.TextBoxFor(m => m.IDD_FIRSTNAME, new { @class = "form-control" })
+					@Html.LabelFor(m => m.PromoterDetails.IDD_FIRSTNAME, "First Name", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_FIRSTNAME, new { @class = "form-control" })
 				</div>
 				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_LASTNAME, "Last Name", new { @class = "form-label" })
-					@Html.TextBoxFor(m => m.IDD_LASTNAME, new { @class = "form-control" })
+					@Html.LabelFor(m => m.PromoterDetails.IDD_LASTNAME, "Last Name", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_LASTNAME, new { @class = "form-control" })
 				</div>
 				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_ADNO, "Aadhar Number", new { @class = "form-label" })
-					@Html.TextBoxFor(m => m.IDD_ADNO, new { @class = "form-control", @type = "date" })
-				</div>
-			</div>
-
-			<div class="row mb-3">
-				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_PAN, "PAN No.", new { @class = "form-label" })
-					@Html.TextBoxFor(m => m.IDD_PAN, new { @class = "form-control" })
-				</div>
-				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_DINNO, "DIN No.(if applicable)", new { @class = "form-label" })
-					@Html.TextBoxFor(m => m.IDD_DINNO, new { @class = "form-control" })
-				</div>
-				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_NATIONALITY, "Nationality", new { @class = "form-label" })
-					@Html.TextBoxFor(m => m.IDD_NATIONALITY, new { @class = "form-control", @type = "date" })
+					@Html.LabelFor(m => m.PromoterDetails.IDD_ADNO, "Aadhar Number", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_ADNO, new { @class = "form-control", @type = "date" })
 				</div>
 			</div>
 
 			<div class="row mb-3">
 				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_DOORNO, "DOOR No.", new { @class = "form-label" })
-					@Html.TextBoxFor(m => m.IDD_DOORNO, new { @class = "form-control" })
+					@Html.LabelFor(m => m.PromoterDetails.IDD_PAN, "PAN No.", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_PAN, new { @class = "form-control" })
 				</div>
 				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_STREET, "Street", new { @class = "form-label" })
-					@Html.TextBoxFor(m => m.IDD_STREET, new { @class = "form-control" })
+					@Html.LabelFor(m => m.PromoterDetails.IDD_DINNO, "DIN No.(if applicable)", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_DINNO, new { @class = "form-control" })
 				</div>
 				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_EMAIL, "Email ", new { @class = "form-label" })
-					@Html.TextBoxFor(m => m.IDD_EMAIL, new { @class = "form-control" })
-				</div>
-			</div>
-
-			<div class="row mb-3">
-				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_PINCODE, "Pin Code ", new { @class = "form-label" })
-					@Html.TextBoxFor(m => m.IDD_PINCODE, new { @class = "form-control" })
-				</div>
-				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_COUNTRY, "Country ", new { @class = "form-label" })
-					@Html.TextBoxFor(m => m.IDD_COUNTRY, new { @class = "form-control" })
-				</div>
-
-				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_STATE, "State ", new { @class = "form-label" })
-					@* @Html.DropDownListFor(m => m.IDD_STATE, Model.DistrictList, "-- Select District --", new { @class = "form-control" })  *@
+					@Html.LabelFor(m => m.PromoterDetails.IDD_NATIONALITY, "Nationality", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_NATIONALITY, new { @class = "form-control", @type = "date" })
 				</div>
 			</div>
 
 			<div class="row mb-3">
 				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_DISTRICT, "District ", new { @class = "form-label" })
-					@Html.TextBoxFor(m => m.IDD_DISTRICT, new { @class = "form-control" })
+					@Html.LabelFor(m => m.PromoterDetails.IDD_DOORNO, "DOOR No.", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_DOORNO, new { @class = "form-control" })
 				</div>
 				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_MANDAL, "Taluka ", new { @class = "form-label" })
-					@* @Html.DropDownListFor(m => m.IDD_MANDAL, Model.TalukaList, "-- Select Taluka --", new { @class = "form-control" }) *@
+					@Html.LabelFor(m => m.PromoterDetails.IDD_STREET, "Street", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_STREET, new { @class = "form-control" })
 				</div>
-
 				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_CITY, "City/Town/Village", new { @class = "form-label" })
-					@* @Html.DropDownListFor(m => m.IDD_CITY, Model.VillageList, "-- Select Village --", new { @class = "form-control" }) *@
+					@Html.LabelFor(m => m.PromoterDetails.IDD_EMAIL, "Email ", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_EMAIL, new { @class = "form-control" })
 				</div>
 			</div>
 
 			<div class="row mb-3">
 				<div class="col-md-4">
-					@Html.LabelFor(m => m.IDD_PHONE, "Phone ", new { @class = "form-label" })
-					@Html.TextBoxFor(m => m.IDD_PHONE, new { @class = "form-control" })
+					@Html.LabelFor(m => m.PromoterDetails.IDD_PINCODE, "Pin Code ", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_PINCODE, new { @class = "form-control" })
+				</div>
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.PromoterDetails.IDD_COUNTRY, "Country ", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_COUNTRY, new { @class = "form-control" })
+				</div>
+
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.PromoterDetails.IDD_STATE, "State ", new { @class = "form-label" })
+					@Html.DropDownListFor(m => m.PromoterDetails.IDD_STATE, Model.States, "-- Select State --", new { @class = "form-control", onchange = "this.form.submit();" })
+
+				</div>
+			</div>
+
+			<div class="row mb-3" id="divMeghalaya" style="@(ViewBag.IsMeghalaya != null && (bool)ViewBag.IsMeghalaya ? "" : "display:none")">
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.PromoterDetails.IDD_DISTRICT, "District ", new { @class = "form-label" })
+					@Html.DropDownListFor(m => m.PromoterDetails.IDD_DISTRICT, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" })
+				</div>
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.PromoterDetails.IDD_MANDAL, "Taluka ", new { @class = "form-label" })
+					@Html.DropDownListFor(m => m.PromoterDetails.IDD_MANDAL, Model.Talukas, "-- Select Taluka --", new { @class = "form-control", onchange = "this.form.submit();" })
+				</div>
+
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.PromoterDetails.IDD_CITY, "City/Town/Village", new { @class = "form-label" })
+					@Html.DropDownListFor(m => m.PromoterDetails.IDD_CITY, Model.Villages, "-- Select Village --", new { @class = "form-control", onchange = "this.form.submit();" })
+				</div>
+			</div>
+
+			<div class="row mb-3" id="divOtherState" style="@(ViewBag.IsMeghalaya != null && (bool)ViewBag.IsMeghalaya ? "display:none" : "")">
+
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.PromoterDetails.IDD_DISTRICTName, "District ", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_DISTRICTName, new { @class = "form-control" })
+				</div>
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.PromoterDetails.IDD_MANDALName, "Taluka ", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_MANDALName, new { @class = "form-control" })
+				</div>
+
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.PromoterDetails.IDD_CITYName, "City/Town/Village", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_CITYName, new { @class = "form-control" })
+				</div>
+			</div>
+			
+
+			<div class="row mb-3">
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.PromoterDetails.IDD_PHONE, "Phone ", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.PromoterDetails.IDD_PHONE, new { @class = "form-control" })
 				</div>
 			</div>
 
