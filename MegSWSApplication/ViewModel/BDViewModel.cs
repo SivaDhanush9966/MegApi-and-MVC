@@ -15,5 +15,7 @@ namespace MegSWSApplication.ViewModel
 
         public bool IsMeghalayaSelectedProp { get; set; } // for the second dropdown
 
+        public int ScrollPosition { get; set; }
+
     }
 }

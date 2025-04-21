@@ -12,6 +12,7 @@
         @using (Html.BeginForm("BasicDetails", "IndustryReg", FormMethod.Post, new { @id = "basicDetailsForm" }))
     {
         @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.ScrollPosition, new { id = "ScrollPosition" })
 
         <div class="row mb-3">
             <div class="col-md-4">
@@ -78,7 +79,7 @@
             <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.AuthState, "State", new { @class = "form-label", onchange = "this.form.submit();" })
 
-                    @Html.DropDownListFor(m => m.IndsDetails.AuthState, Model.States, "-- Select State --", new { @class = "form-control", onchange = "this.form.submit();" })
+                    @Html.DropDownListFor(m => m.IndsDetails.AuthState, Model.States, "-- Select State --", new { @class = "form-control", onchange = "saveScrollAndSubmit(this.form);" })
             </div>
         </div>
         <div class="row mb-3" id="prolocation">
@@ -87,7 +88,7 @@
                     @* @Html.DropDownListFor(m => m.IndsDetails.AuthReprDistID, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
                     @if (Model.IsMeghalayaSelectedAuth)
                     {
-                        @Html.DropDownListFor(m => m.IndsDetails.AuthReprDistID, Model.States, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" })
+                        @Html.DropDownListFor(m => m.IndsDetails.AuthReprDistID, Model.States, "-- Select District --", new { @class = "form-control", onchange = "saveScrollAndSubmit(this.form);" })
                     }
                     else
                     {
@@ -99,7 +100,7 @@
                     @* @Html.DropDownListFor(m => m.IndsDetails.AuthReprTalukaID, Model.Talukas, "-- Select Taluka --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
                     @if (Model.IsMeghalayaSelectedAuth)
                     {
-                        @Html.DropDownListFor(m => m.IndsDetails.AuthReprTalukaID, Model.States, "-- Select Taluka --", new { @class = "form-control", onchange = "this.form.submit();" })
+                        @Html.DropDownListFor(m => m.IndsDetails.AuthReprTalukaID, Model.States, "-- Select Taluka --", new { @class = "form-control", onchange = "saveScrollAndSubmit(this.form);" })
                     }
                     else
                     {
@@ -111,7 +112,7 @@
                     @* @Html.DropDownListFor(m => m.IndsDetails.AuthReprVillageID, Model.Villages, "-- Select Village --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
                     @if (Model.IsMeghalayaSelectedAuth)
                     {
-                        @Html.DropDownListFor(m => m.IndsDetails.AuthReprVillageID, Model.States, "-- Select Village --", new { @class = "form-control", onchange = "this.form.submit();" })
+                        @Html.DropDownListFor(m => m.IndsDetails.AuthReprVillageID, Model.States, "-- Select Village --", new { @class = "form-control", onchange = "saveScrollAndSubmit(this.form);" })
                     }
                     else
                     {
@@ -157,14 +158,14 @@
 
                 <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.PropLocState, "State", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocStateId, Model.States, "-- Select State --", new { @class = "form-control", onchange = "this.form.submit();" })
+                    @Html.DropDownListFor(m => m.IndsDetails.PropLocStateId, Model.States, "-- Select State --", new { @class = "form-control", onchange = "saveScrollAndSubmit(this.form);" })
                 </div>
 
                 <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.PropLocDist, "District *", new { @class = "form-label" })
                     @if (Model.IsMeghalayaSelectedProp)
                     {
-                        @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" })
+                        @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "saveScrollAndSubmit(this.form);" })
                     }
                     else
                     {
@@ -181,7 +182,7 @@
                     @* @Html.DropDownListFor(m => m.IndsDetails.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
                     @if (Model.IsMeghalayaSelectedProp)
                     {
-                        @Html.DropDownListFor(m => m.IndsDetails.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control", onchange = "this.form.submit();" })
+                        @Html.DropDownListFor(m => m.IndsDetails.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control", onchange = "saveScrollAndSubmit(this.form);" })
                     }
                     else
                     {
@@ -351,3 +352,18 @@
     }
     </div>
 </div>
+
+<script>
+    function saveScrollAndSubmit(form) {
+        var scrollPos = window.scrollY || document.documentElement.scrollTop;
+        document.getElementById("ScrollPosition").value = scrollPos;
+        form.submit();
+    }
+
+    window.onload = function () {
+        var savedScrollPos = document.getElementById("ScrollPosition").value;
+        if (savedScrollPos) {
+            window.scrollTo(0, savedScrollPos);
+        }
+    };
+</script>
