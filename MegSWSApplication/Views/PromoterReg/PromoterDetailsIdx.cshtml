@@ -1,0 +1,100 @@
+﻿@model MegSWSApplication.Models.IndusRegModels.IndustryPromoter
+
+@{
+	ViewBag.CurrentAction = "ApplicantDetails"; // Or Promoter Details, etc.
+}
+
+<div class="card">
+	<div class="card-body">
+		<h5 class="card-title">Promoter Details</h5>
+
+		@using (Html.BeginForm("SavePromoterDetails", "Industry", FormMethod.Post, new { @id = "promoterDetailsForm" }))
+		{
+			@Html.AntiForgeryToken()
+
+			<div class="row mb-3">
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_FIRSTNAME, "First Name", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.IDD_FIRSTNAME, new { @class = "form-control" })
+				</div>
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_LASTNAME, "Last Name", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.IDD_LASTNAME, new { @class = "form-control" })
+				</div>
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_ADNO, "Aadhar Number", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.IDD_ADNO, new { @class = "form-control", @type = "date" })
+				</div>
+			</div>
+
+			<div class="row mb-3">
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_PAN, "PAN No.", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.IDD_PAN, new { @class = "form-control" })
+				</div>
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_DINNO, "DIN No.(if applicable)", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.IDD_DINNO, new { @class = "form-control" })
+				</div>
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_NATIONALITY, "Nationality", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.IDD_NATIONALITY, new { @class = "form-control", @type = "date" })
+				</div>
+			</div>
+
+			<div class="row mb-3">
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_DOORNO, "DOOR No.", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.IDD_DOORNO, new { @class = "form-control" })
+				</div>
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_STREET, "Street", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.IDD_STREET, new { @class = "form-control" })
+				</div>
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_EMAIL, "Email ", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.IDD_EMAIL, new { @class = "form-control" })
+				</div>
+			</div>
+
+			<div class="row mb-3">
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_PINCODE, "Pin Code ", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.IDD_PINCODE, new { @class = "form-control" })
+				</div>
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_COUNTRY, "Country ", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.IDD_COUNTRY, new { @class = "form-control" })
+				</div>
+
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_STATE, "State ", new { @class = "form-label" })
+					@* @Html.DropDownListFor(m => m.IDD_STATE, Model.DistrictList, "-- Select District --", new { @class = "form-control" }) *@
+				</div>
+			</div>
+
+			<div class="row mb-3">
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_DISTRICT, "District ", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.IDD_DISTRICT, new { @class = "form-control" })
+				</div>
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_MANDAL, "Taluka ", new { @class = "form-label" })
+					@* @Html.DropDownListFor(m => m.IDD_MANDAL, Model.TalukaList, "-- Select Taluka --", new { @class = "form-control" }) *@
+				</div>
+
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_CITY, "City/Town/Village", new { @class = "form-label" })
+					@* @Html.DropDownListFor(m => m.IDD_CITY, Model.VillageList, "-- Select Village --", new { @class = "form-control" }) *@
+				</div>
+			</div>
+
+			<div class="row mb-3">
+				<div class="col-md-4">
+					@Html.LabelFor(m => m.IDD_PHONE, "Phone ", new { @class = "form-label" })
+					@Html.TextBoxFor(m => m.IDD_PHONE, new { @class = "form-control" })
+				</div>
+			</div>
+		}
+	</div>
+</div>
