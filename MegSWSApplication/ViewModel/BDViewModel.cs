@@ -5,13 +5,11 @@ namespace MegSWSApplication.ViewModel
 {
     public class BDViewModel
     {
-        public  IndustryDetails IndsDetails  = new IndustryDetails();
+        public IndustryDetails IndsDetails { get; set; }
         public List<SelectListItem> States { get; set; }
-        public List<SelectListItem> Disttricts { get; set; }
-
-        public List<SelectListItem> Talukas { get; set; }
-
-        public List<SelectListItem> Villages { get; set; }
+        public List<SelectListItem> Districts { get; set; } // for the first dropdown
+        public List<SelectListItem> Talukas { get; set; } // for the second
+        public List<SelectListItem> Villages { get; set; } // for the third
 
 
     }

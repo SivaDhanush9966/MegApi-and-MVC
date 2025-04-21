@@ -9,7 +9,7 @@
     <div class="card-body">
         <h5 class="card-title">Basic Details</h5>
     
-        @using (Html.BeginForm("SaveIndustryDetails", "Industry", FormMethod.Post, new { @id = "basicDetailsForm" }))
+        @using (Html.BeginForm("BasicDetails", "IndustryReg", FormMethod.Post, new { @id = "basicDetailsForm" }))
     {
         @Html.AntiForgeryToken()
 
@@ -137,7 +137,8 @@
 
                 <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.PropLocDist, "District *", new { @class = "form-label" })
-                    @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Disttricts, "-- Select District --", new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control" })
+                    @* @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control" }) *@
                 </div>
             </div>
 
@@ -145,6 +146,7 @@
                 <div class="col-md-4">
                     @Html.LabelFor(m => m.IndsDetails.PropLocTaluka, "Taluka *", new { @class = "form-label" })
                     @Html.DropDownListFor(m => m.IndsDetails.PropLocTaluka, Model.Talukas, "-- Select Taluka --", new { @class = "form-control" })
+                    @* @Html.DropDownListFor(m => m.IndsDetails.PropLocDist, Model.Districts, "-- Select District --", new { @class = "form-control", onchange = "this.form.submit();" }) *@
                 </div>
 
                 <div class="col-md-4">

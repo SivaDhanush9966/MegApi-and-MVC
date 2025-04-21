@@ -258,5 +258,35 @@ namespace IndustryRegApi.Controllers
             return Ok(result);
         }
 
+        [HttpGet("mandals")]
+        public IActionResult GetMandalsByDistrict([FromQuery] int districtId)
+        {
+            var result = new List<Mandal>();
+
+            using (SqlConnection con = new SqlConnection(_configuration.GetConnectionString("MIPASS")))
+            {
+                using (SqlCommand cmd = new SqlCommand("USP_GET_MANDALS", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@DISTRICT", districtId);
+
+                    con.Open();
+                    using (SqlDataReader rdr = cmd.ExecuteReader())
+                    {
+                        while (rdr.Read())
+                        {
+                            result.Add(new Mandal
+                            {
+                                MandalName = rdr["MANDALNAME"].ToString(),
+                                MandalCode = rdr["MANDALCODE"].ToString()
+                            });
+                        }
+                    }
+                }
+            }
+
+            return Ok(result);
+        }
+
     }
 }
