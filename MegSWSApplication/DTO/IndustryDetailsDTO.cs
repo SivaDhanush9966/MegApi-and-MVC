@@ -16,10 +16,11 @@
         public string AuthReprMobile { get; set; }
         public string AuthReprEmail { get; set; }
         public string AuthReprLocality { get; set; }
+
         public string AuthReprDist { get; set; }
         public string AuthReprDistID { get; set; }
-        public string AutoDoorNo { get; set; }
-        public string AutoState { get; set; }
+        public string AuthDoorNo { get; set; }
+        public string AuthState { get; set; }
 
 
         public string AuthReprTaluka { get; set; }
@@ -32,6 +33,8 @@
         public string LandType { get; set; }
         public string PropLocDoorno { get; set; }
         public string PropLocLocality { get; set; }
+        public string PropLocState { get; set; }
+
         public string PropLocDist { get; set; }
         public string PropLocDistID { get; set; }
         public string PropLocTaluka { get; set; }
