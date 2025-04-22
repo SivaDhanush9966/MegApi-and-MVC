@@ -1,8 +1,8 @@
 ﻿using HTAS2_Dev.Models;
 
-namespace HTAS2_Dev.DataLayer.Interface
+namespace HTAS2_Dev.BussinessLayer.Interface
 {
-    public interface IRoleService
+    public interface IRoleMasterService
     {
         Task<IEnumerable<Role>> GetAllRolesAsync();
     }

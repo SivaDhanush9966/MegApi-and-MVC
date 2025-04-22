@@ -5,11 +5,11 @@ using System.Data;
 
 namespace HTAS2_Dev.DataLayer.Implementation
 {
-    public class RoleRepository : IRoleService
+    public class RoleMasterRepository: IRoleMasterRepository
     {
         private readonly IConfiguration _configuration;
 
-        public RoleRepository(IConfiguration configuration)
+        public RoleMasterRepository(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -53,5 +53,6 @@ namespace HTAS2_Dev.DataLayer.Implementation
             return roles;
         }
 
-        }
+    }
 }
+

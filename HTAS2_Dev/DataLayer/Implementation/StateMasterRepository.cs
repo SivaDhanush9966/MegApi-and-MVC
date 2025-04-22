@@ -1,6 +1,6 @@
 ﻿using HTAS2_Dev.DataLayer.Interface;
 using HTAS2_Dev.Models;
-using MySql.Data.MySqlClient;
+using MySqlConnector;
 using System.Data;
 
 namespace HTAS2_Dev.DataLayer.Implementation
