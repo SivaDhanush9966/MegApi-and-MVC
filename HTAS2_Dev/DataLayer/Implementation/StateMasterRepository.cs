@@ -11,7 +11,7 @@ namespace HTAS2_Dev.DataLayer.Implementation
 
         public StateMasterRepository(IConfiguration configuration)
         {
-            _connectionString = configuration.GetConnectionString("")
+            _connectionString = configuration.GetConnectionString("HtaxMysql")
                             ?? throw new InvalidOperationException("Database connection string is missing.");
         }
 
