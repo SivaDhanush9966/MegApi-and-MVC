@@ -7,15 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySqlConnector" Version="2.4.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="BussinessLayer\Implementation\" />
     <Folder Include="BussinessLayer\Interface\" />
-    <Folder Include="DataLayer\Implementation\" />
-    <Folder Include="DataLayer\Interface\" />
-    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
