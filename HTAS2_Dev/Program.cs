@@ -15,7 +15,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IStateMasterRepository, StateMasterRepository>();
 builder.Services.AddScoped<IStateMasterService, StateMasterService>();
 
-builder.Services.AddScoped<IRoleService, RoleRepository>();
+builder.Services.AddScoped<IRoleMasterRepository, RoleMasterRepository>();
+builder.Services.AddScoped<IRoleMasterService,RoleMasterService >();
+
 
 var app = builder.Build();
 
