@@ -1,4 +1,5 @@
-﻿using HTAS2_Dev.DataLayer.Interface;
+﻿using HTAS2_Dev.BussinessLayer.Interface;
+using HTAS2_Dev.DataLayer.Interface;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HTAS2_Dev.Controllers
@@ -7,9 +8,9 @@ namespace HTAS2_Dev.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IRoleService _roleService;
+        private readonly IRoleMasterService _roleService;
 
-        public UserController(IRoleService roleService)
+        public UserController(IRoleMasterService roleService)
         {
             _roleService = roleService;
         }
