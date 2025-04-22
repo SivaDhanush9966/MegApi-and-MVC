@@ -1,16 +1,15 @@
 ﻿using HTAS2_Dev.DataLayer.Interface;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HTAS2_Dev.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RoleController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly IRoleService _roleService;
 
-        public RoleController(IRoleService roleService)
+        public UserController(IRoleService roleService)
         {
             _roleService = roleService;
         }
